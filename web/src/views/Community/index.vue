@@ -1,14 +1,6 @@
 <template>
   <div class="page">
-    <div class="navbar">
-      <div class="navbar-start">
-        <div class="navbar-item">Home</div>
-        <div class="navbar-item">社区</div>
-      </div>
-      <div class="navbar-end">
-        <div class="navbar-item">个人中心</div>
-      </div>
-    </div>
+    <HeadNav/>
     <div class="main-container">
       <div class="left-container">
         <div class="publish-box">
@@ -145,9 +137,10 @@
 
 <script>
 import { defineComponent, ref } from "vue";
+import HeadNav from "@/components/HeadNav"
 
 export default defineComponent({
-  components: {},
+  components: {HeadNav},
   setup() {
     // 定义变量
     const data = ref("可恶！！！就是语法问题，你个家伙，自己看我Test这个index.vue的写法！");
