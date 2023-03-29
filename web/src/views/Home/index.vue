@@ -12,7 +12,7 @@
             <div class="left-item">This is an axample article.</div>
             <div class="left-item">This is an axample article.</div>
           </div>
-          <div class="more-box">More</div>
+          <div class="more-box"><router-link to="/advice">More</router-link></div>
         </div>
         <div class="left-two">
           <div class="left-mini-title">Outside</div>
@@ -22,7 +22,7 @@
             <div class="left-item">This is an axample article.</div>
             <div class="left-item">This is an axample article.</div>
           </div>
-          <div class="more-box">More</div>
+          <div class="more-box"><router-link to="/advice">More</router-link></div>
         </div>
         <div class="left-three">
           <div class="left-mini-title">Daily</div>
@@ -33,7 +33,7 @@
             <div class="left-item">This is an axample article.</div>
             <div class="left-item">This is an axample article.</div>
           </div>
-          <div class="more-box">More</div>
+          <div class="more-box"><router-link to="/advice">More</router-link></div>
         </div>
       </div>
       <div class="right-container">
