@@ -10,7 +10,11 @@ let UsersSchema = new mongoose.Schema({
     level: {
         type: Number,
         default: 1,   // 1-普通用户  2-vip用户  3-管理员
-    },   
+    }, 
+    avatar: {     // 头像地址
+        type: String,
+        default: "",
+    },  
     createAt: {
         type: Date,
         default: Date.now
@@ -25,6 +29,7 @@ function createUser(obj) {
         age: obj.age,
         sex: obj.sex,
         hobbies: obj.hobbies,
+        avatar: obj.avatar,
     })
 }
 function loginUser(username, password) {
@@ -48,6 +53,7 @@ function updUserInfo(name, obj) {
         password: obj.password,
         age: obj.age,
         hobbies: obj.hobbies,
+        avatar: obj.avatar,
     })
 }
 function queryUserByUsername(username) {

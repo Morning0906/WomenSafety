@@ -3,9 +3,10 @@ const { conn } = require('../utils/mongoConnect')
 
 let AdviseSchema = new mongoose.Schema({
     title: String,
-    type: Number,   // 1-娱乐类  2-生活类  3-科技类  4-音乐类 
+    type: Number,   // 1-娱乐类  2-生活类  3-科技类  4-音乐类  5-独居类  6-旅行类
     author: String,
     content: String,
+    picture: String,  
     createAt: {
         type: Date,
         default: Date.now
@@ -19,6 +20,7 @@ function createAdvise(obj) {
         type: obj.type,
         author: obj.author,
         content: obj.content,
+        picture: obj.picture,
     })
 }
 function queryAdvise() {
