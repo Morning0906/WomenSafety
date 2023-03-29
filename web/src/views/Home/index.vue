@@ -1,30 +1,39 @@
 <template>
   <div class="page">
-    <HeadNav/>
+    <HeadNav />
     <div class="titlebar">Women Safety</div>
     <div class="main-container">
       <div class="left-container">
-        <div class="left-title">· Suggestion List</div>
+        <div class="left-title">· 女性安全建议</div>
         <div class="left-one">
           <div class="left-mini-title">Live Alone</div>
-          <div class="left-item">This is an axample article.</div>
-          <div class="left-item">This is an axample article.</div>
-          <div class="left-item">This is an axample article.</div>
+          <div class="item-container-one">
+            <div class="left-item">This is an axample article.</div>
+            <div class="left-item">This is an axample article.</div>
+            <div class="left-item">This is an axample article.</div>
+          </div>
+          <div class="more-box">More</div>
         </div>
         <div class="left-two">
           <div class="left-mini-title">Outside</div>
-          <div class="left-item">This is an axample article.</div>
-          <div class="left-item">This is an axample article.</div>
-          <div class="left-item">This is an axample article.</div>
-          <div class="left-item">This is an axample article.</div>
+          <div class="item-container-two">
+            <div class="left-item">This is an axample article.</div>
+            <div class="left-item">This is an axample article.</div>
+            <div class="left-item">This is an axample article.</div>
+            <div class="left-item">This is an axample article.</div>
+          </div>
+          <div class="more-box">More</div>
         </div>
         <div class="left-three">
           <div class="left-mini-title">Daily</div>
-          <div class="left-item">This is an axample article.</div>
-          <div class="left-item">This is an axample article.</div>
-          <div class="left-item">This is an axample article.</div>
-          <div class="left-item">This is an axample article.</div>
-          <div class="left-item">This is an axample article.</div>
+          <div class="item-container-three">
+            <div class="left-item">This is an axample article.</div>
+            <div class="left-item">This is an axample article.</div>
+            <div class="left-item">This is an axample article.</div>
+            <div class="left-item">This is an axample article.</div>
+            <div class="left-item">This is an axample article.</div>
+          </div>
+          <div class="more-box">More</div>
         </div>
       </div>
       <div class="right-container">
@@ -64,13 +73,15 @@
 
 <script>
 import { defineComponent, ref } from "vue";
-import HeadNav from "@/components/HeadNav"
+import HeadNav from "@/components/HeadNav";
 
 export default defineComponent({
-  components: {HeadNav},
+  components: { HeadNav },
   setup() {
     // 定义变量
-    const data = ref("可恶！！！就是语法问题，你个家伙，自己看我Test这个index.vue的写法！");
+    const data = ref(
+      "可恶！！！就是语法问题，你个家伙，自己看我Test这个index.vue的写法！"
+    );
     return {
       data,
     };
@@ -93,7 +104,7 @@ export default defineComponent({
 .main-container {
   position: relative;
   width: 100%;
-  height: 1000px;
+  height: 1100px;
   margin-top: 30px;
   display: flex;
 
@@ -109,30 +120,51 @@ export default defineComponent({
       background-color: #f5f4f1;
     }
     .left-one {
-      height: 200px;
+      height: 240px;
       margin-top: 30px;
       background-color: #f5f4f1;
+      .item-container-one{
+        height: 150px;
+      }
     }
     .left-two {
       margin-top: 30px;
-      height: 250px;
+      height: 300px;
       background-color: #f5f4f1;
+      .item-container-two{
+        height: 200px;
+      }
     }
     .left-three {
       margin-top: 30px;
-      height: 300px;
+      height: 350px;
       background-color: #f5f4f1;
+      .item-container-three{
+        height: 250px;
+      }
     }
     .left-mini-title {
       height: 50px;
+      line-height: 50px;
       font-size: 20px;
       margin-left: 20px;
-      // margin-top: 10px;
       text-align: left;
     }
     .left-item {
       height: 50px;
+      line-height: 50px;
       font-size: 16px;
+      margin-left: 20px;
+      text-align: left;
+    }
+    .more-box{
+      font-size: 14px;
+      height: 40px;
+      line-height: 40px;
+      position: relative;
+      margin-left: 20px;
+      text-align: left;
+      
     }
   }
   .right-container {
