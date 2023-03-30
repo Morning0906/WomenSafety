@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <HeadNav/>
+    <HeadNav />
     <div class="main-container">
       <div class="left-container">
         <div class="publish-box">
@@ -137,13 +137,15 @@
 
 <script>
 import { defineComponent, ref } from "vue";
-import HeadNav from "@/components/HeadNav"
+import HeadNav from "@/components/HeadNav";
 
 export default defineComponent({
-  components: {HeadNav},
+  components: { HeadNav },
   setup() {
     // 定义变量
-    const data = ref("可恶！！！就是语法问题，你个家伙，自己看我Test这个index.vue的写法！");
+    const data = ref(
+      "可恶！！！就是语法问题，你个家伙，自己看我Test这个index.vue的写法！"
+    );
     return {
       data,
     };
@@ -160,7 +162,7 @@ export default defineComponent({
   position: relative;
   width: 100%;
   height: 80px;
-  background-color: #EFE6E8;
+  background-color: #efe6e8;
   color: #333;
   display: flex;
   align-items: center;
@@ -214,12 +216,12 @@ export default defineComponent({
   height: 1000px;
   margin-top: 30px;
   display: flex;
+  justify-content: space-around;
 
   .right-container {
-    width: 30%;
+    width: 28%;
     height: 100%;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-right: 80px;
     .left-title {
       height: 50px;
       font-size: 20px;
@@ -255,12 +257,12 @@ export default defineComponent({
     }
   }
   .left-container {
-    width: 60%;
+    width: 48%;
     height: 100%;
-    margin-left: 30px;
+    margin-left: 80px;
     .publish-box {
       height: 400px;
-      background-color: #D8D8D8;
+      background-color: #d8d8d8;
       .publish-title {
         width: 100%;
         height: 40px;
@@ -282,7 +284,7 @@ export default defineComponent({
         height: 260px;
         background-color: #f5f4f1;
       }
-      .publish-button{
+      .publish-button {
         border-radius: 6px;
         height: 40px;
         line-height: 40px;
@@ -297,7 +299,7 @@ export default defineComponent({
     .news-box {
       height: 450px;
       margin-top: 30px;
-      background-color: #D8D8D8;
+      background-color: #d8d8d8;
       .news-box-title {
         height: 20px;
         line-height: 30px;
@@ -315,6 +317,9 @@ export default defineComponent({
           font-size: 18px;
           line-height: 60px;
           text-align: left;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
         }
       }
     }
