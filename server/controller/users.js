@@ -12,7 +12,7 @@ module.exports = {
         let obj = ctx.request.body;
         // 处理hobbies参数
         obj.hobbies = JSON.parse(obj.hobbies);
-        if (typeof obj.hobbies != "object") {
+        if (!Array.isArray(obj.hobbies)) {
             obj.hobbies = [];
         }
         // 判断用户名是否存在
