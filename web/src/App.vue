@@ -1,14 +1,20 @@
 <template>
   <div>
-    <router-view />
+    <n-notification-provider>
+      <router-view />
+    </n-notification-provider>
   </div>
 </template>
 
 <script>
+import { NNotificationProvider } from "naive-ui";
 
 export default {
-  name: 'App',
-}
+  components: {
+    NNotificationProvider,
+  },
+  name: "App",
+};
 </script>
 
 <style>
