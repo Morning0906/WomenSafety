@@ -8,10 +8,30 @@ const {
 } = require('../utils/config')
 
 module.exports = {
+    // 判断用户登录状态
+    checkStatus: async ctx => {
+        // 验证token
+        verifyToken(ctx);
+        let user = await mongoose.checkUser(ctx.state.user.username).catch(err => {
+            console.log(err);
+        });
+        if (!user) {
+            ctx.body = {
+                message: '服务器错误',
+                status: 500,
+            }
+            return
+        }
+        ctx.body = {
+            message: '用户已经是登录状态',
+            status: 200,
+            data: user
+        }
+    },
     createUser: async ctx => {
         let obj = ctx.request.body;
         // 处理hobbies参数
-        obj.hobbies = JSON.parse(obj.hobbies);
+        obj.hobbies = obj.hobbies ? JSON.parse(obj.hobbies) : [];
         if (!Array.isArray(obj.hobbies)) {
             obj.hobbies = [];
         }
@@ -109,6 +129,7 @@ module.exports = {
             password,
             age,
             hobbies,
+            avatar,
         } = ctx.request.body;
         if (password == "") {
             ctx.body = {
@@ -118,7 +139,7 @@ module.exports = {
             return;
         }
         // 处理hobbies参数
-        hobbies = JSON.parse(hobbies);
+        hobbies = hobbies ? JSON.parse(hobbies) : [];
         if (typeof hobbies != "object") {
             hobbies = [];
         }
@@ -127,13 +148,14 @@ module.exports = {
         await mongoose.updUserInfo(username, {
             password,
             age,
+            avatar,
             hobbies,
         }).catch(err => {
             console.log(err);
         })
         ctx.body = {
             message: "用户信息更新成功",
-            status: 200
+            status: 200,
         }
     },
 }

@@ -7,7 +7,7 @@
       <n-form-item path="username">
         <n-input
           v-model:value="formState.username"
-          :placeholder="username"
+          placeholder="请输入用户名.."
           :input-props="{ autocomplete: 'off' }"
         ></n-input>
       </n-form-item>
@@ -16,7 +16,7 @@
         <n-input
           v-model:value="formState.password"
           type="password"
-          :placeholder="password"
+          placeholder="请输入密码.."
           :input-props="{ autocomplete: 'off' }"
         ></n-input>
       </n-form-item>
@@ -69,7 +69,6 @@ export default defineComponent({
     // 点击登录
     async function handleSubmit() {
       loading.value = true;
-      console.log(formState);
       let result = await Store.dispatch("user/LOGIN", formState);
       if (result.status != 200) {
         notify("error", result.message);

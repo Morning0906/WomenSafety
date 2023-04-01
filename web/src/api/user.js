@@ -33,7 +33,7 @@ export function UserLogin(data) {
  */
  export function CheckStatus() {
     return request({
-        url: `checkstatus`,
+        url: `checkStatus`,
         method: "get",
     });
 }

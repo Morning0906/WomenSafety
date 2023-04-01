@@ -7,14 +7,35 @@
 </template>
 
 <script>
+import { defineComponent, onMounted } from "vue";
 import { NNotificationProvider } from "naive-ui";
-
-export default {
+import { useStore } from "vuex";
+import { CheckStatus } from "@/api/user";
+import { useRouter } from "vue-router";
+export default defineComponent({
   components: {
     NNotificationProvider,
   },
   name: "App",
-};
+  setup() {
+    const Store = useStore();
+    const Router = useRouter();
+    // 检查用户登录状态, 更新状态
+    onMounted(async () => {
+      let result = await CheckStatus();
+      let newData = {
+        ...result.data[0],
+        token: localStorage.getItem("token")
+      }
+      if (result.status == 200) {
+        // 更新用户信息
+        Store.dispatch("user/INITUSERINFO", newData);
+        Router.push({ name: "Home" });
+      }
+    });
+    return {};
+  },
+});
 </script>
 
 <style>

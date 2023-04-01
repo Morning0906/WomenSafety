@@ -19,6 +19,25 @@
           />
         </n-space>
         <n-space align="center">
+          用户:
+          <n-input
+            v-model:value="username"
+            type="text"
+            size="large"
+            placeholder="请输入.."
+            readonly
+          />
+        </n-space>
+        <n-space align="center">
+          密码:
+          <n-input
+            v-model:value="password"
+            type="text"
+            size="large"
+            placeholder="请输入.."
+          />
+        </n-space>
+        <n-space align="center">
           性别:
           <n-input
             v-model:value="sex"
@@ -29,18 +48,9 @@
           />
         </n-space>
         <n-space align="center">
-          用户:
+          年龄:
           <n-input
-            v-model:value="username"
-            type="text"
-            size="large"
-            placeholder="请输入.."
-          />
-        </n-space>
-        <n-space align="center">
-          密码:
-          <n-input
-            v-model:value="password"
+            v-model:value="age"
             type="text"
             size="large"
             placeholder="请输入.."
@@ -105,6 +115,7 @@ export default defineComponent({
     const avator = ref("");
     const userid = ref("");
     const sex = ref("");
+    const age = ref("");
     const loading = ref(true);
     // 确认按钮文本
     const btnText = ref("修改信息");
@@ -112,11 +123,12 @@ export default defineComponent({
     let cancelable = ref(false);
 
     onMounted(() => {
-      console.log(Store);
+      // 从store中获取数据
       userid.value = Store.state.user.userid;
       username.value = Store.state.user.username;
       password.value = Store.state.user.password;
       avator.value = Store.state.user.avator;
+      age.value = Store.state.user.age;
       sex.value = Store.state.user.sex === 1 ? "男" : "女";
       loading.value = false;
     });
@@ -157,14 +169,21 @@ export default defineComponent({
       if (btnText.value == "修改信息") {
         // 发送请求, 保存第一页设置内容
         result = await UpdateUserInfo({
-          userId: userid.value,
-          username: username.value,
+          age: age.value,
           password: password.value,
         });
       }
-      console.log(result);
       if (result.status == 200) {
         notify("success", result.message);
+        // 更新用户信息
+        await Store.dispatch("user/INITUSERINFO", {
+          username: username.value,
+          _id: userid.value,
+          password: password.value,
+          age: age.value,
+          sex: sex.value,
+          token: localStorage.getItem("token"),
+        });
       }
       loading.value = false;
     };
@@ -179,6 +198,7 @@ export default defineComponent({
       avator,
       userid,
       sex,
+      age,
       saveContent,
       loading,
     };
@@ -187,9 +207,16 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
-.container {
-  width: 400px;
-  margin: 0 auto;
-  padding: 50px 30px 40px;
+:deep(.n-spin-content) {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .container {
+    width: 60vw;
+    margin: 0 auto;
+    padding: 50px 30px 40px;
+  }
 }
 </style>

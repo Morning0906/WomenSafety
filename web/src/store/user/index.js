@@ -20,16 +20,17 @@ const mutations = {
         state.username = "";
         state.password = "";
         state.sex = "";
+        state.age = "";
         state.userid = "";
         state.token = "";
     },
     // 用户信息初始化
     [USER_INIT]: (state, user) => {
-        console.log(user);
         state.username = user.username;
         state.userid = user._id;
         state.password = user.password;
         state.sex = user.sex;
+        state.age = user.age;
         state.token = user.token;
     },
 };
@@ -68,6 +69,7 @@ export default {
             sex: "",
             avatar: "",
             token: "",
+            age: "",
         }
     },
     mutations,

@@ -1,4 +1,4 @@
 // 本地测试接口地址
-export const API_BASE_URL = "http://127.0.0.1:5200";
+export const API_BASE_URL = "http://localhost:8080";
 
 

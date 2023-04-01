@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Store from "@/store";
 import Home from "@/views/Home/index.vue"
 import Login from "@/views/Login/index.vue"
+import Register from "@/views/Register/index.vue"
 import Community from "@/views/Community/index.vue"
 import Advice from "@/views/Advice/index.vue"
 import Article from "@/views/Article/index.vue"
@@ -46,6 +47,14 @@ const routes = [
         },
     },
     {
+        path: '/register',
+        name: 'Register',
+        component: Register,
+        meta: {
+            requiresAuth: false,
+        },
+    },
+    {
         path: '/article',
         name: 'Article',
         component: Article,
@@ -82,6 +91,8 @@ Router.beforeEach(async (to, from, next) => {
     let token = Store.state.user.token;
     // 页面需要登录
     if(to.matched.some(item => item.meta.requiresAuth)) {
+        console.log("------------");
+        console.log(token);
         // 用户登录
         if(token) {
             return next();
