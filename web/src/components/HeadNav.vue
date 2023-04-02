@@ -5,7 +5,7 @@
         <div class="navbar-item"><router-link to="/community">社区</router-link></div>
       </div>
       <div class="navbar-end">
-        <div class="navbar-item">个人中心</div>
+        <div class="navbar-item"><router-link to="/user">个人中心</router-link></div>
       </div>
     </div>
 </template>

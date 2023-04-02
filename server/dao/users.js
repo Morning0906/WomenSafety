@@ -22,6 +22,11 @@ let UsersSchema = new mongoose.Schema({
 })
 let UsersList = conn.model('Users', UsersSchema)
 
+function checkUser(username) {
+    return UsersList.find({
+        username: username,
+    })
+}
 function createUser(obj) {
     return UsersList.create({
         username: obj.username,
@@ -63,6 +68,7 @@ function queryUserByUsername(username) {
 }
 
 module.exports = {
+    checkUser,
     createUser,
     loginUser,
     queryUsers,

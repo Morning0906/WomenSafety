@@ -4,6 +4,8 @@ const UsersController = require('../controller/users');
 module.exports = (app) => {
     // 用户
     app
+        // 检查用户状态
+        .use(route.get('/checkStatus', UsersController.checkStatus))
         // 注册
         .use(route.post('/registerUser', UsersController.createUser))
         // 登陆

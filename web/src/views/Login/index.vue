@@ -1,26 +1,22 @@
 <template>
   <div class="i-container">
-    <n-form
-      :model="formState"
-      class="i-form"
-      label-placement="left"
-    >
+    <n-form :model="formState" class="i-form" label-placement="left">
       <!-- 网站title -->
       <h1>Women Safe</h1>
       <!-- 邮箱 -->
       <n-form-item path="username">
         <n-input
-          v-model="formState.username"
-          :placeholder="username"
+          v-model:value="formState.username"
+          placeholder="请输入用户名.."
           :input-props="{ autocomplete: 'off' }"
         ></n-input>
       </n-form-item>
       <!-- 密码 -->
       <n-form-item path="password">
         <n-input
-          v-model="formState.password"
+          v-model:value="formState.password"
           type="password"
-          :placeholder="password"
+          placeholder="请输入密码.."
           :input-props="{ autocomplete: 'off' }"
         ></n-input>
       </n-form-item>
@@ -47,26 +43,42 @@
 
 <script>
 import { ref, reactive, defineComponent } from "vue";
+import { useStore } from "vuex";
 import { useRouter } from "vue-router";
-import {
-  NForm,
-  NFormItem,
-  NInput,
-  NButton,
-} from "naive-ui";
+import { NForm, NFormItem, NInput, NButton, useNotification } from "naive-ui";
 
 export default defineComponent({
   setup() {
+    // 状态管理
+    const Store = useStore();
     // 路由
     const Router = useRouter();
+    const notification = useNotification();
     const formState = reactive({
       username: "",
       password: "",
     });
     let loading = ref(false);
+    // 定义消息通知
+    const notify = (type, message) => {
+      notification[type]({
+        content: message,
+        duration: 1300,
+      });
+    };
     // 点击登录
     async function handleSubmit() {
-      Router.push("/home");
+      loading.value = true;
+      let result = await Store.dispatch("user/LOGIN", formState);
+      if (result.status != 200) {
+        notify("error", result.message);
+      } else {
+        console.log(result.data);
+        await Store.dispatch("user/INITUSERINFO", result.data);
+        localStorage.setItem("token", result.data.token);
+        Router.push("/home");
+      }
+      loading.value = false;
     }
     // 点击注册
     function handleRegister() {
