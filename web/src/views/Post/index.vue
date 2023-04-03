@@ -9,11 +9,34 @@
         <div class="article-container">
           独自出行本来是一个很自由的事情，但是因为男女主角不平等，女性独自出行要承担更大的风险。所以说你想要自由出行，
         </div>
+        <!-- 发布评论 -->
+        <div class="publish-box">
+          <div class="publish-article">
+            <el-input
+              class="publish-article-input"
+              v-model="inputValue"
+              placeholder="请输入内容"
+              type="textarea"
+              rows="5"
+              size="large"
+            ></el-input>
+          </div>
+          <div class="publish-button" @click="publishComment()">发布评论</div>
+        </div>
         <div class="comment-container">
-            <div class="left-mini-title">全部评论</div>
-            <div class="left-item">This is an axample article.</div>
-            <div class="left-item">This is an axample article.</div>
-            <div class="left-item">This is an axample article.</div>
+          <div class="comment-title">全部评论</div>
+          <div class="comment-item">
+            <div class="comment-author">Morning早早：</div>
+            <div class="comment-content">leo老师我想你</div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-author">Morning早早：</div>
+            <div class="comment-content">leo老师我想你</div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-author">Morning早早：</div>
+            <div class="comment-content">leo老师我想你</div>
+          </div>
         </div>
       </div>
       <div class="right-container">
@@ -33,16 +56,19 @@
 <script>
 import { defineComponent, ref } from "vue";
 import HeadNav from "@/components/HeadNav";
+import { ElInput } from "element-plus";
 
 export default defineComponent({
-  components: { HeadNav },
+  components: { HeadNav, ElInput },
   setup() {
     // 定义变量
-    const data = ref(
-      "可恶！！！就是语法问题，你个家伙，自己看我Test这个index.vue的写法！"
-    );
+    const inputValue = ref("");
+    const publishComment = () => {
+      //发布评论
+    };
     return {
-      data,
+      inputValue,
+      publishComment,
     };
   },
 });
@@ -63,7 +89,7 @@ export default defineComponent({
 .main-container {
   position: relative;
   width: 100%;
-  height: 900px;
+  height: 1100px;
   margin-top: 30px;
   display: flex;
   justify-content: space-around;
@@ -85,29 +111,67 @@ export default defineComponent({
       font-size: 18px;
       height: 40%;
       margin-top: 30px;
-      margin-bottom: 30px;
       background-color: #f5f4f1;
       overflow-y: scroll;
     }
 
-    .left-mini-title {
+    .comment-container {
+      height: auto;
+      margin-top: 20px;
+      background-color: #f5f4f1;
+      margin-bottom: 30px;
+    }
+
+    .comment-title {
       height: 50px;
       line-height: 50px;
       font-size: 20px;
       margin-left: 20px;
       text-align: left;
     }
-    .left-item {
+    .comment-item {
       height: 50px;
       line-height: 50px;
       font-size: 16px;
       margin-left: 20px;
       text-align: left;
+      display: flex;
+      .comment-author {
+        height: 100%;
+        font-size: 16px;
+        font-weight: 700;
+      }
+      .comment-content {
+        margin-left: 10px;
+        height: 100%;
+        font-size: 16px;
+      }
     }
 
-    .comment-container{
+    .publish-box {
+      height: 200px;
+      background-color: #d8d8d8;
+      .publish-article {
+        width: 100%;
+      }
+      .publish-article-input {
+        border-radius: 6px;
+        margin-top: 20px;
+        width: 95%;
+        // height: 120px;
         background-color: #f5f4f1;
-        height: 35%;
+      }
+      .publish-button {
+        border-radius: 6px;
+        height: 40px;
+        line-height: 40px;
+        width: 80px;
+        font-size: 14px;
+        margin-top: 10px;
+        margin-left: 20px;
+        background-color: #567e7a;
+        color: #fff;
+      }
     }
 
     // 滚动条样式

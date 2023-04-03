@@ -8,6 +8,7 @@ import Advice from "@/views/Advice/index.vue"
 import Article from "@/views/Article/index.vue"
 import Post from "@/views/Post/index.vue"
 import User from "@/views/User/index.vue"
+import Center from "@/views/Center/index.vue"
 
 const routes = [
     {
@@ -74,6 +75,14 @@ const routes = [
         path: '/user',
         name: 'User',
         component: User,
+        meta: {
+            requiresAuth: true,
+        },
+    },
+    {
+        path: '/center',
+        name: 'Center',
+        component: Center,
         meta: {
             requiresAuth: true,
         },
