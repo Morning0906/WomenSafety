@@ -12,7 +12,9 @@
             <div class="left-item">This is an axample article.</div>
             <div class="left-item">This is an axample article.</div>
           </div>
-          <div class="more-box"><router-link to="/advice">More</router-link></div>
+          <div class="more-box">
+            <router-link to="/advice">More</router-link>
+          </div>
         </div>
         <div class="left-two">
           <div class="left-mini-title">Outside</div>
@@ -22,7 +24,9 @@
             <div class="left-item">This is an axample article.</div>
             <div class="left-item">This is an axample article.</div>
           </div>
-          <div class="more-box"><router-link to="/advice">More</router-link></div>
+          <div class="more-box">
+            <router-link to="/advice">More</router-link>
+          </div>
         </div>
         <div class="left-three">
           <div class="left-mini-title">Daily</div>
@@ -33,12 +37,22 @@
             <div class="left-item">This is an axample article.</div>
             <div class="left-item">This is an axample article.</div>
           </div>
-          <div class="more-box"><router-link to="/advice">More</router-link></div>
+          <div class="more-box">
+            <router-link to="/advice">More</router-link>
+          </div>
         </div>
       </div>
       <div class="right-container">
         <div class="video-box">
-          <iframe
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">Slide 1</div>
+              <div class="swiper-slide">Slide 2</div>
+              <div class="swiper-slide">Slide 3</div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <!-- <iframe
             src="https://player.bilibili.com/player.html?aid=463651746&bvid=BV1aL411G7Ny&cid=427473421&page=1&autoplay=no"
             width="100%"
             height="400px"
@@ -48,7 +62,7 @@
             framespacing="0"
             allowfullscreen="allowfullscreen"
           >
-          </iframe>
+          </iframe> -->
         </div>
         <div class="news-box">
           <div class="news-box-title">最新资讯</div>
@@ -72,8 +86,10 @@
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, onMounted } from "vue";
 import HeadNav from "@/components/HeadNav";
+import Swiper from "swiper";
+import "@/style/swiper-3.4.2.min.css";
 
 export default defineComponent({
   components: { HeadNav },
@@ -82,8 +98,19 @@ export default defineComponent({
     const data = ref(
       "可恶！！！就是语法问题，你个家伙，自己看我Test这个index.vue的写法！"
     );
+    const swiperRef = ref(null);
+
+    // 在组件挂载后执行的操作
+    onMounted(() => {
+      new Swiper(swiperRef.value, {
+        // Swiper 配置项
+        // ...
+      });
+    });
+
     return {
       data,
+      swiperRef,
     };
   },
 });
@@ -123,7 +150,7 @@ export default defineComponent({
       height: 240px;
       margin-top: 30px;
       background-color: #f5f4f1;
-      .item-container-one{
+      .item-container-one {
         height: 150px;
       }
     }
@@ -131,7 +158,7 @@ export default defineComponent({
       margin-top: 30px;
       height: 300px;
       background-color: #f5f4f1;
-      .item-container-two{
+      .item-container-two {
         height: 200px;
       }
     }
@@ -139,7 +166,7 @@ export default defineComponent({
       margin-top: 30px;
       height: 350px;
       background-color: #f5f4f1;
-      .item-container-three{
+      .item-container-three {
         height: 250px;
       }
     }
@@ -156,15 +183,15 @@ export default defineComponent({
       font-size: 16px;
       margin-left: 20px;
       text-align: left;
+      background-color: #fff;
     }
-    .more-box{
+    .more-box {
       font-size: 14px;
       height: 40px;
       line-height: 40px;
       position: relative;
       margin-left: 20px;
       text-align: left;
-      
     }
   }
   .right-container {
@@ -200,6 +227,22 @@ export default defineComponent({
         }
       }
     }
+  }
+
+  // 轮播图
+  .swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 </style>

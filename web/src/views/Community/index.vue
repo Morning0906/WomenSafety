@@ -15,7 +15,7 @@
         <div class="news-box">
           <div class="news-box-title">最新讨论</div>
           <div class="main-news">
-            <div class="news-item">
+            <div class="news-item" @click="jump">
               女生一个人出门旅行，有哪些值得注意的安全问题？有什么女性出行安全经验分享？
             </div>
             <div class="news-item">
@@ -138,16 +138,25 @@
 <script>
 import { defineComponent, ref } from "vue";
 import HeadNav from "@/components/HeadNav";
+import { useRouter } from "vue-router";
 
 export default defineComponent({
   components: { HeadNav },
   setup() {
+      // 路由
+    const Router = useRouter();
     // 定义变量
     const data = ref(
       "可恶！！！就是语法问题，你个家伙，自己看我Test这个index.vue的写法！"
     );
+
+    const jump = () => {
+      Router.push("/post");
+    }
+
     return {
       data,
+      jump,
     };
   },
 });
