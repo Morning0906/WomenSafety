@@ -23,11 +23,12 @@ export default defineComponent({
     // 检查用户登录状态, 更新状态
     onMounted(async () => {
       let result = await CheckStatus();
+      let obj = result && result.length > 0 ? result.data[0] : {};
       let newData = {
-        ...result.data[0],
+        ...obj,
         token: localStorage.getItem("token")
       }
-      if (result.status == 200) {
+      if (result && result.status == 200) {
         // 更新用户信息
         Store.dispatch("user/INITUSERINFO", newData);
         Router.push({ name: "Home" });

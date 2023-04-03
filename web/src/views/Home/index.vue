@@ -8,7 +8,11 @@
         <div class="left-one">
           <div class="left-mini-title">Live Alone</div>
           <div class="item-container-one">
-            <div class="left-item">This is an axample article.</div>
+            <div class="left-item">
+              <router-link to="/article"
+                >This is an axample article.</router-link
+              >
+            </div>
             <div class="left-item">This is an axample article.</div>
             <div class="left-item">This is an axample article.</div>
           </div>
@@ -44,25 +48,26 @@
       </div>
       <div class="right-container">
         <div class="video-box">
-          <div class="swiper-container">
+          <!-- 轮播图 -->
+          <div class="swiper-container" ref="swiperRef">
             <div class="swiper-wrapper">
-              <div class="swiper-slide">Slide 1</div>
+              <div class="swiper-slide">
+                <iframe
+                  src="https://player.bilibili.com/player.html?aid=463651746&bvid=BV1aL411G7Ny&cid=427473421&page=1&autoplay=no"
+                  width="100%"
+                  height="400px"
+                  scrolling="no"
+                  border="0"
+                  frameborder="no"
+                  framespacing="0"
+                  allowfullscreen="allowfullscreen"
+                >
+                </iframe>
+              </div>
               <div class="swiper-slide">Slide 2</div>
               <div class="swiper-slide">Slide 3</div>
             </div>
-            <div class="swiper-pagination"></div>
           </div>
-          <!-- <iframe
-            src="https://player.bilibili.com/player.html?aid=463651746&bvid=BV1aL411G7Ny&cid=427473421&page=1&autoplay=no"
-            width="100%"
-            height="400px"
-            scrolling="no"
-            border="0"
-            frameborder="no"
-            framespacing="0"
-            allowfullscreen="allowfullscreen"
-          >
-          </iframe> -->
         </div>
         <div class="news-box">
           <div class="news-box-title">最新资讯</div>
@@ -88,8 +93,8 @@
 <script>
 import { defineComponent, ref, onMounted } from "vue";
 import HeadNav from "@/components/HeadNav";
-import Swiper from "swiper";
-import "@/style/swiper-3.4.2.min.css";
+import Swiper from "swiper/dist/js/swiper.min.js";
+import "swiper/dist/css/swiper.min.css";
 
 export default defineComponent({
   components: { HeadNav },
@@ -103,8 +108,8 @@ export default defineComponent({
     // 在组件挂载后执行的操作
     onMounted(() => {
       new Swiper(swiperRef.value, {
-        // Swiper 配置项
-        // ...
+        direction: "horizontal",
+        loop: true,
       });
     });
 
