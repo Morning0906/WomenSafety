@@ -29,11 +29,11 @@
       </div>
       <div class="right-container">
         <div class="left-title">女性安全好物推荐</div>
-        <!-- <div class="left-one">
+        <div class="left-one">
           <div class="left-item">
             <div class="product-image">
               <img
-                src="../../src/assets/111.jpg"
+                src="/assets/111.jpg"
                 alt=""
                 width="60px"
                 height="60px"
@@ -44,7 +44,7 @@
           <div class="left-item">
             <div class="product-image">
               <img
-                src="../../src/assets/111.jpg"
+                src="/assets/111.jpg"
                 alt=""
                 width="60px"
                 height="60px"
@@ -55,7 +55,7 @@
           <div class="left-item">
             <div class="product-image">
               <img
-                src="../../src/assets/111.jpg"
+                src="/assets/111.jpg"
                 alt=""
                 width="60px"
                 height="60px"
@@ -66,7 +66,7 @@
           <div class="left-item">
             <div class="product-image">
               <img
-                src="../../src/assets/111.jpg"
+                src="/assets/111.jpg"
                 alt=""
                 width="60px"
                 height="60px"
@@ -77,7 +77,7 @@
           <div class="left-item">
             <div class="product-image">
               <img
-                src="../../src/assets/111.jpg"
+                src="/assets/111.jpg"
                 alt=""
                 width="60px"
                 height="60px"
@@ -99,7 +99,7 @@
           <div class="left-item">
             <div class="product-image">
               <img
-                src="../../src/assets/111.jpg"
+                src="/assets/111.jpg"
                 alt=""
                 width="60px"
                 height="60px"
@@ -110,7 +110,7 @@
           <div class="left-item">
             <div class="product-image">
               <img
-                src="../../src/assets/111.jpg"
+                src="/assets/111.jpg"
                 alt=""
                 width="60px"
                 height="60px"
@@ -121,7 +121,7 @@
           <div class="left-item">
             <div class="product-image">
               <img
-                src="../../src/assets/111.jpg"
+                src="/assets/111.jpg"
                 alt=""
                 width="60px"
                 height="60px"
@@ -129,7 +129,7 @@
             </div>
             阻门器顶门器女性出差旅行家用便携门阻
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
   </div>
