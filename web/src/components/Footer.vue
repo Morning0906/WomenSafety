@@ -30,6 +30,7 @@ export default defineComponent({
   padding-left: 60px;
   padding-right: 60px;
   padding-bottom: 80px;
+  background: #eef5ec;
   font-size: 14px;
   .author {
     .before-desc {
