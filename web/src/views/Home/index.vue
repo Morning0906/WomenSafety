@@ -13,7 +13,7 @@
           女性安全建议
         </div>
         <div class="left-one">
-          <div class="left-mini-title">Live Alone</div>
+          <div class="left-mini-title">独居 · Live Alone</div>
           <div class="item-container-one">
             <div
               class="left-item"
@@ -30,25 +30,34 @@
           </div>
         </div>
         <div class="left-two">
-          <div class="left-mini-title">Outside</div>
+          <div class="left-mini-title">出行 · Outside</div>
           <div class="item-container-two">
-            <div class="left-item">1. This is an axample article.</div>
-            <div class="left-item">2. This is an axample article.</div>
-            <div class="left-item">3. This is an axample article.</div>
-            <div class="left-item">4. This is an axample article.</div>
+            <div
+              class="left-item"
+              v-for="(item, index) in Outside"
+              :key="index"
+            >
+              <router-link to="/article"
+                >{{ index + 1 }}. {{ item.title }}</router-link
+              >
+            </div>
           </div>
           <div class="more-box">
             <router-link to="/advice">More</router-link>
           </div>
         </div>
         <div class="left-three">
-          <div class="left-mini-title">Daily</div>
+          <div class="left-mini-title">日常 · Daily</div>
           <div class="item-container-three">
-            <div class="left-item">1. This is an axample article.</div>
-            <div class="left-item">2. This is an axample article.</div>
-            <div class="left-item">3. This is an axample article.</div>
-            <div class="left-item">4. This is an axample article.</div>
-            <div class="left-item">5. This is an axample article.</div>
+            <div
+              class="left-item"
+              v-for="(item, index) in Daily"
+              :key="index"
+            >
+              <router-link to="/article"
+                >{{ index + 1 }}. {{ item.title }}</router-link
+              >
+            </div>
           </div>
           <div class="more-box">
             <router-link to="/advice">More</router-link>
@@ -131,6 +140,8 @@ export default defineComponent({
     const data = ref("");
     const swiperRef = ref(null);
     const liveAlone = reactive([]);
+    const Outside = reactive([]);
+    const Daily = reactive([]);
 
     // 在组件挂载后执行的操作
     onMounted(async () => {
@@ -140,14 +151,32 @@ export default defineComponent({
       });
       // 发起请求
       const result = await queryAdvise();
+      console.log(result);
       // 过滤独居类(type == 1)的信息
-      let dataArr = result.data.filter((item) => {
+      let dataArr1 = result.data.filter((item) => {
         return item.type === 1;
       });
       // 存储到显示变量liveAlone
-      for (let item of dataArr) {
+      for (let item of dataArr1) {
         liveAlone.push(item);
       }
+      // 过滤出行类(type == 2)的信息
+      let dataArr2 = result.data.filter((item) => {
+        return item.type === 2;
+      });
+      // 存储到显示变量Outside
+      for (let item of dataArr2) {
+        Outside.push(item);
+      }
+      // 过滤日常类(type == 3)的信息
+      let dataArr3 = result.data.filter((item) => {
+        return item.type === 3;
+      });
+      // 存储到显示变量Daily
+      for (let item of dataArr3) {
+        Outside.push(item);
+      }
+
     });
 
     return {
