@@ -272,6 +272,7 @@ export default defineComponent({
     .publish-box {
       height: 400px;
       background-color: #d8d8d8;
+      border-radius: 8px;
       .publish-title {
         width: 100%;
         height: 40px;
