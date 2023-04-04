@@ -68,8 +68,9 @@ export default defineComponent({
 
   .left-container {
     position: relative;
-    width: 58%;
+    width: 48%;
     height: 100%;
+    margin-left: 50px;
     .left-title {
       height: 50px;
       font-size: 20px;
@@ -102,7 +103,7 @@ export default defineComponent({
   }
 
   .right-container {
-    width: 28%;
+    width: 30%;
     height: 100%;
     .right-title {
       height: 50px;

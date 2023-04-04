@@ -148,10 +148,14 @@ export default defineComponent({
 .main-container {
   position: relative;
   width: 100%;
-  margin-top: 30px;
   display: flex;
   padding-top: 80px;
   padding-bottom: 100px;
+  background-image: linear-gradient(
+    174.2deg,
+    rgba(255, 244, 228, 1) 7.1%,
+    rgba(240, 246, 238, 1) 67.4%
+  );
 
   .left-container {
     width: 30%;
