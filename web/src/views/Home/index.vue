@@ -15,13 +15,15 @@
         <div class="left-one">
           <div class="left-mini-title">Live Alone</div>
           <div class="item-container-one">
-            <div class="left-item">
+            <div
+              class="left-item"
+              v-for="(item, index) in liveAlone"
+              :key="index"
+            >
               <router-link to="/article"
-                >1. This is an axample article.</router-link
+                >{{ index + 1 }}. {{ item.title }}</router-link
               >
             </div>
-            <div class="left-item">2. This is an axample article.</div>
-            <div class="left-item">3. This is an axample article.</div>
           </div>
           <div class="more-box">
             <router-link to="/advice">More</router-link>
@@ -115,11 +117,12 @@
 </template>
 
 <script>
-import { defineComponent, ref, onMounted } from "vue";
+import { defineComponent, ref, onMounted, reactive } from "vue";
 import HeadNav from "@/components/HeadNav";
 import Footer from "@/components/Footer";
 import Swiper from "swiper/dist/js/swiper.min.js";
 import "swiper/dist/css/swiper.min.css";
+import { queryAdvise } from "@/api/index";
 
 export default defineComponent({
   components: { HeadNav, Footer },
@@ -127,18 +130,30 @@ export default defineComponent({
     // 定义变量
     const data = ref("");
     const swiperRef = ref(null);
+    const liveAlone = reactive([]);
 
     // 在组件挂载后执行的操作
-    onMounted(() => {
+    onMounted(async () => {
       new Swiper(swiperRef.value, {
         direction: "horizontal",
         loop: true,
       });
+      // 发起请求
+      const result = await queryAdvise();
+      // 过滤独居类(type == 1)的信息
+      let dataArr = result.data.filter((item) => {
+        return item.type === 1;
+      });
+      // 存储到显示变量liveAlone
+      for (let item of dataArr) {
+        liveAlone.push(item);
+      }
     });
 
     return {
       data,
       swiperRef,
+      liveAlone,
     };
   },
 });
@@ -161,7 +176,6 @@ export default defineComponent({
     width: 30%;
     height: 100%;
     margin-left: 50px;
-    // background-color: #f5f4f1;
     .left-title {
       height: 50px;
       font-size: 20px;
@@ -177,17 +191,11 @@ export default defineComponent({
       }
     }
     .left-one {
-      height: 240px;
       margin-top: 30px;
-      // background-color: #f5f4f1;
-      .item-container-one {
-        height: 150px;
-      }
     }
     .left-two {
       margin-top: 30px;
       height: 300px;
-      // background-color: #f5f4f1;
       .item-container-two {
         height: 200px;
       }
@@ -195,7 +203,6 @@ export default defineComponent({
     .left-three {
       margin-top: 30px;
       height: 350px;
-      // background-color: #f5f4f1;
       .item-container-three {
         height: 250px;
       }
@@ -213,7 +220,6 @@ export default defineComponent({
       font-size: 16px;
       margin-left: 20px;
       text-align: left;
-      // background-color: #fff;
     }
     .more-box {
       font-size: 14px;
@@ -234,7 +240,6 @@ export default defineComponent({
       background-color: #ededed;
     }
     .news-box {
-      // height: 450px;
       margin-top: 30px;
       background-color: #ededed;
       border-radius: 8px;
@@ -246,7 +251,6 @@ export default defineComponent({
         margin-top: 10px;
       }
       .main-news {
-        // height: 200px;
         margin: 30px;
         .main-news-title {
           margin-top: 40px;
@@ -272,7 +276,6 @@ export default defineComponent({
     text-align: center;
     font-size: 18px;
     background: #fff;
-    /* Center slide text vertically */
     display: flex;
     justify-content: center;
     align-items: center;
