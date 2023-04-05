@@ -3,135 +3,83 @@
     <HeadNav />
     <div class="main-container">
       <div class="left-container">
+        <div class="news-box-title">你的观点</div>
         <div class="publish-box">
           <div class="publish-title">
-            <input class="publish-title-input" type="text" value="请输入标题" />
+            <input
+              class="publish-title-input"
+              type="text"
+              placeholder="请输入标题..."
+            />
           </div>
           <div class="publish-article">
-            <input class="publish-article-input" type="text" />
+            <textarea
+              class="publish-article-input"
+              placeholder="请输入具体内容..."
+              name=""
+              id=""
+              cols="30"
+              rows="10"
+            ></textarea>
           </div>
           <div class="publish-button">发布讨论</div>
         </div>
+        <div class="news-box-title">最新讨论</div>
         <div class="news-box">
-          <div class="news-box-title">最新讨论</div>
           <div class="main-news">
             <div class="news-item" @click="jump">
+              ·
               女生一个人出门旅行，有哪些值得注意的安全问题？有什么女性出行安全经验分享？
             </div>
             <div class="news-item">
-              卧室里的烟雾报警器有红灯一闪一闪的，是摄像头吗？可以遮挡住吗？
+              · 卧室里的烟雾报警器有红灯一闪一闪的，是摄像头吗？可以遮挡住吗？
             </div>
             <div class="news-item">
+              ·
+              女性在家中穿着得体的情况下，夜晚能拉开窗帘吗？（家里还有其它人）？
+            </div>
+            <div class="news-item">
+              · 卧室里的烟雾报警器有红灯一闪一闪的，是摄像头吗？可以遮挡住吗？
+            </div>
+            <div class="news-item">
+              ·
               女性在家中穿着得体的情况下，夜晚能拉开窗帘吗？（家里还有其它人）？
             </div>
           </div>
         </div>
       </div>
       <div class="right-container">
-        <div class="left-title">女性安全好物推荐</div>
+        <div class="left-title">
+          <img
+            class="advice-icon"
+            src="../../assets/advice.png"
+            alt=""
+            srcset=""
+          />女性安全好物推荐
+        </div>
         <div class="left-one">
           <div class="left-item">
             <div class="product-image">
-              <img
-                src="/assets/111.jpg"
-                alt=""
-                width="60px"
-                height="60px"
-              />
+              <img src="@/assets/111.jpg" alt="" width="60px" height="60px" />
             </div>
-            阻门器顶门器女性出差旅行家用便携门阻
+            <div class="content">阻门器顶门器女性出差旅行家用便携门阻</div>
           </div>
           <div class="left-item">
             <div class="product-image">
-              <img
-                src="/assets/111.jpg"
-                alt=""
-                width="60px"
-                height="60px"
-              />
+              <img src="@/assets/111.jpg" alt="" width="60px" height="60px" />
             </div>
-            女生个人防狼报警器紧急呼救器
+            <div class="content">阻门器顶门器女性出差旅行家用便携门阻</div>
           </div>
           <div class="left-item">
             <div class="product-image">
-              <img
-                src="/assets/111.jpg"
-                alt=""
-                width="60px"
-                height="60px"
-              />
+              <img src="@/assets/111.jpg" alt="" width="60px" height="60px" />
             </div>
-            阻门器顶门器女性出差旅行家用便携门阻
-          </div>
-          <div class="left-item">
-            <div class="product-image">
-              <img
-                src="/assets/111.jpg"
-                alt=""
-                width="60px"
-                height="60px"
-              />
-            </div>
-            女生个人防狼报警器紧急呼救器
-          </div>
-          <div class="left-item">
-            <div class="product-image">
-              <img
-                src="/assets/111.jpg"
-                alt=""
-                width="60px"
-                height="60px"
-              />
-            </div>
-            阻门器顶门器女性出差旅行家用便携门阻
-          </div>
-          <div class="left-item">
-            <div class="product-image">
-              <img
-                src="@/assets/111.jpg"
-                alt=""
-                width="60px"
-                height="60px"
-              />
-            </div>
-            女生个人防狼报警器紧急呼救器
-          </div>
-          <div class="left-item">
-            <div class="product-image">
-              <img
-                src="/assets/111.jpg"
-                alt=""
-                width="60px"
-                height="60px"
-              />
-            </div>
-            阻门器顶门器女性出差旅行家用便携门阻
-          </div>
-          <div class="left-item">
-            <div class="product-image">
-              <img
-                src="/assets/111.jpg"
-                alt=""
-                width="60px"
-                height="60px"
-              />
-            </div>
-            阻门器顶门器女性出差旅行家用便携门阻
-          </div>
-          <div class="left-item">
-            <div class="product-image">
-              <img
-                src="/assets/111.jpg"
-                alt=""
-                width="60px"
-                height="60px"
-              />
-            </div>
-            阻门器顶门器女性出差旅行家用便携门阻
+            <div class="content">阻门器顶门器女性出差旅行家用便携门阻</div>
           </div>
         </div>
       </div>
     </div>
+    <Footer />
   </div>
 </template>
 
@@ -139,11 +87,12 @@
 import { defineComponent, ref } from "vue";
 import HeadNav from "@/components/HeadNav";
 import { useRouter } from "vue-router";
+import Footer from "@/components/Footer.vue";
 
 export default defineComponent({
-  components: { HeadNav },
+  components: { HeadNav, Footer },
   setup() {
-      // 路由
+    // 路由
     const Router = useRouter();
     // 定义变量
     const data = ref(
@@ -152,7 +101,7 @@ export default defineComponent({
 
     const jump = () => {
       Router.push("/post");
-    }
+    };
 
     return {
       data,
@@ -241,18 +190,23 @@ export default defineComponent({
       font-size: 20px;
       line-height: 50px;
       text-align: center;
-      background-color: #f5f4f1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      .advice-icon {
+        width: 30px;
+        height: 30px;
+      }
     }
     .left-one {
       height: 700px;
       margin-top: 30px;
-      background-color: #f5f4f1;
     }
     .left-mini-title {
       height: 50px;
       font-size: 20px;
       margin-left: 20px;
-      // margin-top: 10px;
       text-align: left;
     }
     .left-item {
@@ -266,7 +220,15 @@ export default defineComponent({
       .product-image {
         height: 60px;
         width: 60px;
+        border-radius: 8px;
         padding-right: 10px;
+        img {
+          border-radius: 8px;
+        }
+      }
+      .content {
+        color: #555;
+        font-weight: 400;
       }
     }
   }
@@ -275,29 +237,35 @@ export default defineComponent({
     height: 100%;
     margin-left: 80px;
     .publish-box {
-      height: 400px;
-      background-color: #d8d8d8;
       border-radius: 8px;
       .publish-title {
         width: 100%;
         height: 40px;
-      }
-      .publish-title-input {
-        border: none;
-        margin-top: 20px;
-        width: 95%;
-        height: 40px;
-        background-color: #f5f4f1;
+        .publish-title-input {
+          border: none;
+          box-sizing: border-box;
+          margin-top: 20px;
+          padding-left: 12px;
+          width: 100%;
+          height: 40px;
+          background-color: #fff;
+          box-shadow: 5px 5px 5px #eee;
+          border-radius: 12px;
+        }
       }
       .publish-article {
         width: 100%;
       }
       .publish-article-input {
+        box-sizing: border-box;
         border: none;
+        padding: 15px 12px;
         margin-top: 40px;
-        width: 95%;
+        width: 100%;
         height: 260px;
-        background-color: #f5f4f1;
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 5px 5px 5px #eee;
       }
       .publish-button {
         border-radius: 6px;
@@ -306,35 +274,43 @@ export default defineComponent({
         width: 80px;
         font-size: 14px;
         margin-top: 10px;
-        margin-left: 20px;
-        background-color: #567e7a;
+        background-color: #91c1bc;
+        background-color: #c8a78d;
         color: #fff;
+        font-weight: bold;
       }
     }
+    .news-box-title {
+      line-height: 30px;
+      font-size: 28px;
+      font-weight: 600;
+      color: #454;
+      margin-top: 60px;
+      text-align: left;
+    }
     .news-box {
-      height: 450px;
       margin-top: 30px;
-      background-color: #d8d8d8;
-      .news-box-title {
-        height: 20px;
-        line-height: 30px;
-        font-size: 20px;
-        padding-top: 20px;
-      }
+      padding-top: 10px;
+      padding-bottom: 10px;
+      background-color: #fff;
+      box-shadow: 5px 5px 5px #eee;
+      border-radius: 15px;
       .main-news {
-        height: 200px;
-        margin: 30px;
         .news-item {
-          height: 60px;
-          margin-top: 10px;
-          padding-left: 10px;
-          background-color: #f5f4f1;
-          font-size: 18px;
-          line-height: 60px;
+          font-size: 14px;
+          color: #999;
+          font-weight: 400;
           text-align: left;
           overflow: hidden;
           white-space: nowrap;
           text-overflow: ellipsis;
+          padding-bottom: 20px;
+          padding-top: 20px;
+          margin-left: 20px;
+          margin-right: 20px;
+          &:not(:last-child) {
+            border-bottom: 0.5px solid #eeeeee;
+          }
         }
       }
     }
