@@ -49,11 +49,7 @@
         <div class="left-three">
           <div class="left-mini-title">日常 · Daily</div>
           <div class="item-container-three">
-            <div
-              class="left-item"
-              v-for="(item, index) in Daily"
-              :key="index"
-            >
+            <div class="left-item" v-for="(item, index) in Daily" :key="index">
               <router-link to="/article"
                 >{{ index + 1 }}. {{ item.title }}</router-link
               >
@@ -67,25 +63,73 @@
       <div class="right-container">
         <div class="video-box">
           <!-- 轮播图 -->
-          <div class="swiper-container" ref="swiperRef">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <iframe
-                  src="https://player.bilibili.com/player.html?aid=463651746&bvid=BV1aL411G7Ny&cid=427473421&page=1&autoplay=no"
-                  width="100%"
-                  height="400px"
-                  scrolling="no"
-                  border="0"
-                  frameborder="no"
-                  framespacing="0"
-                  allowfullscreen="allowfullscreen"
-                >
-                </iframe>
-              </div>
-              <div class="swiper-slide">Slide 2</div>
-              <div class="swiper-slide">Slide 3</div>
-            </div>
-          </div>
+          <el-carousel trigger="click" height="400px">
+            <el-carousel-item>
+              <iframe
+                src="https://player.bilibili.com/player.html?aid=648094433&bvid=BV1be4y1g7t1&cid=902443320&page=1&autoplay=no"
+                width="100%"
+                height="400px"
+                scrolling="no"
+                border="0"
+                frameborder="no"
+                framespacing="0"
+                allowfullscreen="allowfullscreen"
+              >
+              </iframe>
+            </el-carousel-item>
+            <el-carousel-item>
+              <iframe
+                src="https://player.bilibili.com/player.html?aid=424106104&bvid=BV1B341177rT&cid=510508436&page=1&autoplay=no"
+                width="100%"
+                height="400px"
+                scrolling="no"
+                border="0"
+                frameborder="no"
+                framespacing="0"
+                allowfullscreen="allowfullscreen"
+              >
+              </iframe>
+            </el-carousel-item>
+            <el-carousel-item>
+              <iframe
+                src="https://player.bilibili.com/player.html?aid=927815614&bvid=BV1UK4y1Z7Yu&cid=256863453&page=1&autoplay=no"
+                width="100%"
+                height="400px"
+                scrolling="no"
+                border="0"
+                frameborder="no"
+                framespacing="0"
+                allowfullscreen="allowfullscreen"
+              >
+              </iframe>
+            </el-carousel-item>
+            <el-carousel-item>
+              <iframe
+                src="https://player.bilibili.com/player.html?aid=731964773&bvid=BV1ND4y1b7qE&cid=871414280&page=1&autoplay=no"
+                width="100%"
+                height="400px"
+                scrolling="no"
+                border="0"
+                frameborder="no"
+                framespacing="0"
+                allowfullscreen="allowfullscreen"
+              >
+              </iframe>
+            </el-carousel-item>
+            <el-carousel-item>
+              <iframe
+                src="https://player.bilibili.com/player.html?aid=459523411&bvid=BV1H5411K7zr&cid=307646056&page=1&autoplay=no"
+                width="100%"
+                height="400px"
+                scrolling="no"
+                border="0"
+                frameborder="no"
+                framespacing="0"
+                allowfullscreen="allowfullscreen"
+              >
+              </iframe>
+            </el-carousel-item>
+          </el-carousel>
         </div>
         <div class="news-box">
           <div class="news-box-title">最新资讯</div>
@@ -129,12 +173,11 @@
 import { defineComponent, ref, onMounted, reactive } from "vue";
 import HeadNav from "@/components/HeadNav";
 import Footer from "@/components/Footer";
-import Swiper from "swiper/dist/js/swiper.min.js";
-import "swiper/dist/css/swiper.min.css";
 import { queryAdvise } from "@/api/index";
+import { ElCarousel } from "element-plus";
 
 export default defineComponent({
-  components: { HeadNav, Footer },
+  components: { HeadNav, Footer, ElCarousel },
   setup() {
     // 定义变量
     const data = ref("");
@@ -271,7 +314,7 @@ export default defineComponent({
     }
     .news-box {
       margin-top: 30px;
-      background-color: #ededed;
+      background-color: rgba(237, 237, 237, 0.5);
       border-radius: 8px;
       padding: 30px 15px;
       .news-box-title {
@@ -310,5 +353,26 @@ export default defineComponent({
     justify-content: center;
     align-items: center;
   }
+}
+
+// 轮播图
+.demonstration {
+  color: var(--el-text-color-secondary);
+}
+
+.el-carousel__item h3 {
+  color: #475669;
+  opacity: 0.75;
+  line-height: 150px;
+  margin: 0;
+  text-align: center;
+}
+
+.el-carousel__item:nth-child(2n) {
+  background-color: #99a9bf;
+}
+
+.el-carousel__item:nth-child(2n + 1) {
+  background-color: #d3dce6;
 }
 </style>
