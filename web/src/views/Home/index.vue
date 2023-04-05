@@ -174,15 +174,16 @@ export default defineComponent({
       });
       // 存储到显示变量Daily
       for (let item of dataArr3) {
-        Outside.push(item);
+        Daily.push(item);
       }
-
     });
 
     return {
       data,
       swiperRef,
       liveAlone,
+      Outside,
+      Daily,
     };
   },
 });
