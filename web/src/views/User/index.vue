@@ -1,23 +1,6 @@
 <template>
+  <HeadNav />
   <div class="user-container">
-    <div class="top-nav-box">
-      <div class="advice-box-title">个人中心</div>
-      <!-- 登出账户 -->
-      <p class="logout-btn">
-        <a @click="handleLogOut">
-          <n-button strong secondary type="primary">
-            {{ cancelable ? "确认" : "登出" + "账户" }}
-          </n-button>
-        </a>
-        <template v-if="cancelable">
-          ,
-          <n-button strong secondary type="warning" @click="cancleLogOut">
-            取消
-          </n-button>
-        </template>
-      </p>
-    </div>
-
     <!-- 你好, username -->
     <div class="hello-username">
       <h3>Hello, {{ username }}</h3>
@@ -35,7 +18,7 @@
           </div>
           <div class="content">
             <div class="header">
-              <span class="username">leo</span>
+              <span class="username">{{username}}</span>
               <span class="date">2023-04-04</span>
             </div>
             <div class="text">道路很远, 我们很近, 相信明天, 是美好的.</div>
@@ -60,10 +43,12 @@
           </div>
           <div class="content">
             <div class="header">
-              <span class="username">leo</span>
+              <span class="username">{{username}}</span>
               <span class="date">2023-04-03</span>
             </div>
-            <div class="text">如果你不是一个很善于交际的人，那就一个人吃饭，一个人散步一个人看电影，你会发现，其实一个人比一群人更好过.</div>
+            <div class="text">
+              如果你不是一个很善于交际的人，那就一个人吃饭，一个人散步一个人看电影，你会发现，其实一个人比一群人更好过.
+            </div>
             <div class="operation">
               <div class="stars">
                 <img src="@/assets/like.png" />
@@ -85,10 +70,12 @@
           </div>
           <div class="content">
             <div class="header">
-              <span class="username">leo</span>
+              <span class="username">{{username}}</span>
               <span class="date">2023-03-04</span>
             </div>
-            <div class="text">没有谁能一直保持着孤傲，碰多了钉子自然磨掉棱角，这叫做成长！</div>
+            <div class="text">
+              没有谁能一直保持着孤傲，碰多了钉子自然磨掉棱角，这叫做成长！
+            </div>
             <div class="operation">
               <div class="stars">
                 <img src="@/assets/like.png" />
@@ -166,7 +153,26 @@
         </div>
       </n-spin>
     </div>
+
+    <div class="bottom-nav-box">
+      <!-- 登出账户 -->
+      <p class="logout-btn">
+        <a @click="handleLogOut">
+          <n-button strong secondary type="primary">
+            {{ cancelable ? "确认" : "登出" + "账户" }}
+          </n-button>
+        </a>
+        <template v-if="cancelable">
+          ,
+          <n-button strong secondary type="warning" @click="cancleLogOut">
+            取消
+          </n-button>
+        </template>
+      </p>
+    </div>
   </div>
+
+  <Footer />
 </template>
 
 <script>
@@ -184,6 +190,7 @@ import {
 } from "naive-ui";
 import useReduceFn from "@/hooks/useReduceFn";
 import { UpdateUserInfo } from "@/api/user";
+import HeadNav from "@/components/HeadNav";
 
 export default defineComponent({
   name: "User",
@@ -194,6 +201,7 @@ export default defineComponent({
     NButton,
     NSpin,
     NPopover,
+    HeadNav,
   },
   setup() {
     const Store = useStore();
@@ -296,35 +304,15 @@ export default defineComponent({
 
 <style lang="less" scoped>
 .user-container {
-  height: 100vh;
+  height: calc(100vh - 80px);
   background-image: linear-gradient(
     174.2deg,
     rgba(255, 244, 228, 1) 7.1%,
     rgba(240, 246, 238, 1) 67.4%
   );
 
-  .top-nav-box {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    .advice-box-title {
-      font-size: 28px;
-      font-weight: 600;
-      color: #444;
-      text-align: left;
-      padding-left: 60px;
-      padding-top: 50px;
-    }
-
-    .logout-btn {
-      padding-right: 60px;
-      padding-top: 50px;
-    }
-  }
-
   .hello-username {
-    margin-top: 65px;
+    padding-top: 65px;
     h3 {
       font-size: 24px;
       color: #333;
@@ -341,8 +329,6 @@ export default defineComponent({
       width: 30vw;
       height: 370px;
       border-radius: 12px;
-      // background-color: #fff;
-      // box-shadow: 5px 5px 5px #eee;
       .item-tweet {
         background-color: #fff;
         border-radius: 12px;
@@ -428,6 +414,14 @@ export default defineComponent({
       .container {
         width: 30vw;
       }
+    }
+  }
+
+  .bottom-nav-box {
+    .logout-btn {
+      position: fixed;
+      right: 80px;
+      bottom: 100px;
     }
   }
 }
