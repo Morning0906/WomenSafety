@@ -1,70 +1,9 @@
 <template>
-  <n-spin size="large" :show="loading">
-    <div class="container">
-      <!-- 你好, username -->
-      <div class="header">
-        <h3>Hello, {{ username }}</h3>
-      </div>
-      <n-divider />
-      <!-- 用户信息 -->
-      <n-space vertical align="center" :size="distance">
-        <n-space align="center">
-          id值:
-          <n-input
-            v-model:value="userid"
-            type="text"
-            size="large"
-            placeholder="请输入.."
-            readonly
-          />
-        </n-space>
-        <n-space align="center">
-          用户:
-          <n-input
-            v-model:value="username"
-            type="text"
-            size="large"
-            placeholder="请输入.."
-            readonly
-          />
-        </n-space>
-        <n-space align="center">
-          密码:
-          <n-input
-            v-model:value="password"
-            type="text"
-            size="large"
-            placeholder="请输入.."
-          />
-        </n-space>
-        <n-space align="center">
-          性别:
-          <n-input
-            v-model:value="sex"
-            type="text"
-            size="large"
-            placeholder="请输入.."
-            readonly
-          />
-        </n-space>
-        <n-space align="center">
-          年龄:
-          <n-input
-            v-model:value="age"
-            type="text"
-            size="large"
-            placeholder="请输入.."
-          />
-        </n-space>
-        <n-space>
-          <n-button strong secondary type="primary" @click="saveContent">
-            {{ btnText }}
-          </n-button>
-        </n-space>
-      </n-space>
-      <n-divider />
+  <div class="user-container">
+    <div class="top-nav-box">
+      <div class="advice-box-title">个人中心</div>
       <!-- 登出账户 -->
-      <p>
+      <p class="logout-btn">
         <a @click="handleLogOut">
           <n-button strong secondary type="primary">
             {{ cancelable ? "确认" : "登出" + "账户" }}
@@ -78,7 +17,156 @@
         </template>
       </p>
     </div>
-  </n-spin>
+
+    <!-- 你好, username -->
+    <div class="hello-username">
+      <h3>Hello, {{ username }}</h3>
+    </div>
+
+    <div class="user-box">
+      <!-- 用户文章 -->
+      <div class="user-article">
+        <div class="item-tweet">
+          <div class="avatar">
+            <img
+              src="https://img0.baidu.com/it/u=1482619835,4153008160&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1680800400&t=3f1a20cb32da7b18c46d216694b23f86"
+              alt="User avatar"
+            />
+          </div>
+          <div class="content">
+            <div class="header">
+              <span class="username">leo</span>
+              <span class="date">2023-04-04</span>
+            </div>
+            <div class="text">道路很远, 我们很近, 相信明天, 是美好的.</div>
+            <div class="operation">
+              <div class="stars">
+                <img src="@/assets/like.png" />
+                <div class="star_num">12</div>
+              </div>
+              <div class="comments">
+                <img src="@/assets/comment.png" />
+                <div class="comment_num">3</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item-tweet">
+          <div class="avatar">
+            <img
+              src="https://img0.baidu.com/it/u=1482619835,4153008160&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1680800400&t=3f1a20cb32da7b18c46d216694b23f86"
+              alt="User avatar"
+            />
+          </div>
+          <div class="content">
+            <div class="header">
+              <span class="username">leo</span>
+              <span class="date">2023-04-03</span>
+            </div>
+            <div class="text">如果你不是一个很善于交际的人，那就一个人吃饭，一个人散步一个人看电影，你会发现，其实一个人比一群人更好过.</div>
+            <div class="operation">
+              <div class="stars">
+                <img src="@/assets/like.png" />
+                <div class="star_num">89</div>
+              </div>
+              <div class="comments">
+                <img src="@/assets/comment.png" />
+                <div class="comment_num">47</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item-tweet">
+          <div class="avatar">
+            <img
+              src="https://img0.baidu.com/it/u=1482619835,4153008160&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1680800400&t=3f1a20cb32da7b18c46d216694b23f86"
+              alt="User avatar"
+            />
+          </div>
+          <div class="content">
+            <div class="header">
+              <span class="username">leo</span>
+              <span class="date">2023-03-04</span>
+            </div>
+            <div class="text">没有谁能一直保持着孤傲，碰多了钉子自然磨掉棱角，这叫做成长！</div>
+            <div class="operation">
+              <div class="stars">
+                <img src="@/assets/like.png" />
+                <div class="star_num">65</div>
+              </div>
+              <div class="comments">
+                <img src="@/assets/comment.png" />
+                <div class="comment_num">13</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 竖线分割 -->
+      <div class="line"></div>
+      <!-- 用户信息 -->
+      <n-spin size="large" :show="loading">
+        <div class="container">
+          <!-- 用户信息 -->
+          <n-space vertical :size="distance">
+            <n-space align="center">
+              id值:
+              <n-input
+                v-model:value="userid"
+                type="text"
+                size="large"
+                placeholder="请输入.."
+                readonly
+              />
+            </n-space>
+            <n-space align="center">
+              用户:
+              <n-input
+                v-model:value="username"
+                type="text"
+                size="large"
+                placeholder="请输入.."
+                readonly
+              />
+            </n-space>
+            <n-space align="center">
+              密码:
+              <n-input
+                v-model:value="password"
+                type="text"
+                size="large"
+                placeholder="请输入.."
+              />
+            </n-space>
+            <n-space align="center">
+              性别:
+              <n-input
+                v-model:value="sex"
+                type="text"
+                size="large"
+                placeholder="请输入.."
+                readonly
+              />
+            </n-space>
+            <n-space align="center">
+              年龄:
+              <n-input
+                v-model:value="age"
+                type="text"
+                size="large"
+                placeholder="请输入.."
+              />
+            </n-space>
+            <n-space>
+              <n-button strong secondary type="primary" @click="saveContent">
+                {{ btnText }}
+              </n-button>
+            </n-space>
+          </n-space>
+        </div>
+      </n-spin>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -207,16 +295,140 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
-:deep(.n-spin-content) {
-  width: 100vw;
+.user-container {
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  .container {
-    width: 60vw;
-    margin: 0 auto;
-    padding: 50px 30px 40px;
+  background-image: linear-gradient(
+    174.2deg,
+    rgba(255, 244, 228, 1) 7.1%,
+    rgba(240, 246, 238, 1) 67.4%
+  );
+
+  .top-nav-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .advice-box-title {
+      font-size: 28px;
+      font-weight: 600;
+      color: #444;
+      text-align: left;
+      padding-left: 60px;
+      padding-top: 50px;
+    }
+
+    .logout-btn {
+      padding-right: 60px;
+      padding-top: 50px;
+    }
+  }
+
+  .hello-username {
+    margin-top: 65px;
+    h3 {
+      font-size: 24px;
+      color: #333;
+    }
+  }
+
+  .user-box {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 60px;
+
+    .user-article {
+      width: 30vw;
+      height: 370px;
+      border-radius: 12px;
+      // background-color: #fff;
+      // box-shadow: 5px 5px 5px #eee;
+      .item-tweet {
+        background-color: #fff;
+        border-radius: 12px;
+        display: flex;
+        align-items: flex-start;
+        margin: 10px 0;
+        padding: 10px;
+        box-shadow: 5px 5px 5px #eee;
+
+        .avatar {
+          margin-right: 10px;
+          margin-left: 5px;
+
+          img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+          }
+        }
+        .content {
+          flex: 1;
+
+          .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+
+            .username {
+              font-weight: bold;
+              margin-right: 6px;
+              color: gray;
+            }
+
+            .date {
+              color: gray;
+            }
+          }
+
+          .text {
+            text-align: left;
+            margin-top: 5px;
+          }
+
+          .operation {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+            .stars {
+              display: flex;
+              align-items: center;
+              margin-right: 20px;
+              img {
+                width: 15px;
+                height: 15px;
+                margin-right: 5px;
+              }
+            }
+            .comments {
+              display: flex;
+              align-items: center;
+              img {
+                width: 15px;
+                height: 15px;
+                margin-right: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .line {
+      height: 370px;
+      width: 0.5px;
+      background-color: #bbb;
+      margin-left: 100px;
+      margin-right: 100px;
+    }
+
+    :deep(.n-spin-content) {
+      display: flex;
+      align-items: center;
+      .container {
+        width: 30vw;
+      }
+    }
   }
 }
 </style>
