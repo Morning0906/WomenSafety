@@ -274,7 +274,6 @@ export default defineComponent({
         width: 80px;
         font-size: 14px;
         margin-top: 10px;
-        background-color: #91c1bc;
         background-color: #c8a78d;
         color: #fff;
         font-weight: bold;

@@ -23,7 +23,7 @@ export default defineComponent({
     // 检查用户登录状态, 更新状态
     onMounted(async () => {
       let result = await CheckStatus();
-      let obj = result && result.length > 0 ? result.data[0] : {};
+      let obj = result.data && result.data.length > 0 ? result.data[0] : {};
       let newData = {
         ...obj,
         token: localStorage.getItem("token")
