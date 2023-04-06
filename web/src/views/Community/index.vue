@@ -3,7 +3,7 @@
     <HeadNav />
     <div class="main-container">
       <div class="left-container">
-        <div class="news-box-title">你的观点</div>
+        <div class="news-box-title">发布帖子</div>
         <div class="publish-box">
           <div class="publish-title">
             <input
@@ -186,6 +186,7 @@ export default defineComponent({
     height: 100%;
     margin-right: 80px;
     .left-title {
+      margin-top: 40px;
       height: 50px;
       font-size: 20px;
       line-height: 50px;
@@ -284,7 +285,7 @@ export default defineComponent({
       font-size: 28px;
       font-weight: 600;
       color: #454;
-      margin-top: 60px;
+      margin-top: 40px;
       text-align: left;
     }
     .news-box {

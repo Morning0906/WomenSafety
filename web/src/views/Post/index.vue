@@ -4,13 +4,18 @@
     <div class="main-container">
       <div class="left-container">
         <div class="left-title">
-          标题: 卧室里的烟雾报警器有红灯一闪一闪的，是摄像头吗？
+          女生独自坐长途卧铺火车怎样比较安全？
+        </div>
+        <div class="left-title2">
+          <div class="author-box">@momo</div>
+          <div class="time-box">2023-04-26 19:44</div>
         </div>
         <div class="article-container">
-          独自出行本来是一个很自由的事情，但是因为男女主角不平等，女性独自出行要承担更大的风险。所以说你想要自由出行，
+          下周的火车票，在网上有看到很多说不安全的，要怎么才能安全度过全程。
+          我买的是要过夜的那种，全程要十几个小时吧。确实有点担心，之前都是坐的动车呜呜呜。
+          这次第一次坐火车，而且还是一个人。求友友们提供一点建议！
         </div>
         <!-- 发布评论 -->
-        <div class="comment-title">书写评论</div>
         <div class="publish-box">
           <div class="publish-article">
             <el-input
@@ -24,28 +29,63 @@
           </div>
           <div class="publish-button" @click="publishComment()">发布评论</div>
         </div>
+        <div class="comment-title">全部评论</div>
         <div class="comment-container">
           <div class="comment-item">
             <div class="comment-author">Morning早早：</div>
-            <div class="comment-content">leo老师我想你</div>
+            <div class="comment-content">安全性排名：硬卧上铺>硬卧中铺>硬卧下铺>软卧>高软。</div>
           </div>
           <div class="comment-item">
-            <div class="comment-author">Morning早早：</div>
-            <div class="comment-content">leo老师我想你</div>
+            <div class="comment-author">散步的牛油果：</div>
+            <div class="comment-content">穿方便穿脱的鞋子，别穿太贵的鞋子，可能会丢。</div>
           </div>
           <div class="comment-item">
-            <div class="comment-author">Morning早早：</div>
-            <div class="comment-content">leo老师我想你</div>
+            <div class="comment-author">葡萄you：</div>
+            <div class="comment-content">我个人是戴口罩 装得很凶或者有什么传染疾病的那种</div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-author">suhdvi：</div>
+            <div class="comment-content">出现任何问题，立刻找你这节车厢的列车员，就赖上他了。（我爸是铁路系统的）</div>
           </div>
         </div>
       </div>
       <div class="right-container">
-        <div class="right-title">更多讨论</div>
+        <div class="right-title">
+          <img
+            class="title-icon"
+            src="../../assets/more-discuss.png"
+            alt=""
+            srcset=""
+          />
+          更多讨论
+        </div>
         <div class="right-one">
           <div class="item-container-one">
-            <div class="right-item">This is an axample article.</div>
-            <div class="right-item">This is an axample article.</div>
-            <div class="right-item">This is an axample article.</div>
+            <div class="right-item">
+              <img
+                class="title-icon-2"
+                src="../../assets/discuss.png"
+                alt=""
+                srcset=""
+              />
+              This is an axample article.
+            </div>
+            <div class="right-item">
+              <img
+                class="title-icon-2"
+                src="../../assets/discuss.png"
+                alt=""
+                srcset=""
+              />This is an axample article.
+            </div>
+            <div class="right-item">
+              <img
+                class="title-icon-2"
+                src="../../assets/discuss.png"
+                alt=""
+                srcset=""
+              />This is an axample article.
+            </div>
           </div>
         </div>
       </div>
@@ -109,11 +149,12 @@ export default defineComponent({
 
     .left-title {
       height: 50px;
-      font-size: 18px;
+      font-size: 24px;
       line-height: 50px;
       text-align: left;
-      background-color: #fff;
-      box-shadow: 5px 5px 5px #eee;
+      margin-top: 20px;
+      // background-color: #fff;
+      // box-shadow: 5px 5px 5px #eee;
       border-radius: 12px;
       font-weight: 600;
       color: #666;
@@ -121,15 +162,33 @@ export default defineComponent({
       box-sizing: border-box;
     }
 
+    .left-title2 {
+      height: 50px;
+      font-size: 18px;
+      line-height: 50px;
+      text-align: left;
+      margin-top: 20px;
+      border-radius: 12px;
+      font-weight: 600;
+      color: #666;
+      padding-left: 20px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: end;
+      .author-box {
+        padding-right: 15px;
+      }
+      .time-box {
+        font-size: 16px;
+        color: #bbbbbb;
+      }
+    }
+
     .article-container {
       padding: 20px;
-      font-size: 14px;
-      height: 200px;
-      margin-top: 30px;
+      font-size: 16px;
+      height: auto;
       margin-bottom: 20px;
-      overflow-y: scroll;
-      background-color: #fff;
-      box-shadow: 5px 5px 5px #eee;
       border-radius: 12px;
       text-align: left;
     }
@@ -137,7 +196,7 @@ export default defineComponent({
     .comment-container {
       height: auto;
       margin-top: 10px;
-      background-color: #fff;
+      background-color: rgba(255, 255, 255, 0.7) ;
       box-shadow: 5px 5px 5px #eee;
       border-radius: 12px;
       margin-bottom: 30px;
@@ -156,7 +215,7 @@ export default defineComponent({
     }
 
     .comment-item {
-      height: 50px;
+      height: auto;
       line-height: 50px;
       font-size: 16px;
       margin-left: 10px;
@@ -178,6 +237,7 @@ export default defineComponent({
     }
 
     .publish-box {
+      margin-top: 40px;
       margin-bottom: 20px;
       .publish-article {
         border-radius: 12px;
@@ -187,6 +247,10 @@ export default defineComponent({
       .publish-article-input {
         border-radius: 12px;
         width: 100%;
+      }
+      // 改变input框背景颜色
+      /deep/.el-textarea__inner {
+        background-color: rgba(255, 255, 255, 0.7) !important;
       }
       .publish-button {
         border-radius: 6px;
@@ -222,18 +286,21 @@ export default defineComponent({
       height: 50px;
       font-size: 20px;
       line-height: 50px;
+      margin-top: 20px;
       text-align: center;
-      background-color: #fff;
+      background-color: rgba(255, 255, 255, 0.7);
       box-shadow: 5px 5px 5px #eee;
       border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .right-one {
       height: 80%;
       margin-top: 30px;
       margin-bottom: 30px;
-      background-color: #f5f4f1;
       .item-container-one {
-        background-color: #fff;
+        background-color: rgba(255, 255, 255, 0.7);
         box-shadow: 5px 5px 5px #eee;
         border-radius: 12px;
         padding: 10px 0px;
@@ -243,6 +310,8 @@ export default defineComponent({
           font-size: 16px;
           margin-left: 20px;
           text-align: left;
+          display: flex;
+          align-items: center;
         }
       }
     }
@@ -256,5 +325,16 @@ export default defineComponent({
       text-align: left;
     }
   }
+}
+
+.title-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.title-icon-2 {
+  width: 20px;
+  height: 20px;
+  padding-right: 5px;
 }
 </style>

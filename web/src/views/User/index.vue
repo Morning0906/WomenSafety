@@ -3,89 +3,49 @@
   <div class="user-container">
     <!-- 你好, username -->
     <div class="hello-username">
+      <img class="title-icon" src="../../assets/heart.png" alt="" srcset="" />
       <h3>Hello, {{ username }}</h3>
     </div>
 
     <div class="user-box">
       <!-- 用户文章 -->
       <div class="user-article">
+        <div class="title">我发布的帖子</div>
+
         <div class="item-tweet">
           <div class="avatar">
-            <img
-              src="https://img0.baidu.com/it/u=1482619835,4153008160&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1680800400&t=3f1a20cb32da7b18c46d216694b23f86"
-              alt="User avatar"
-            />
+            <img src="../../assets/my-post.png" alt="User avatar" />
           </div>
           <div class="content">
             <div class="header">
-              <span class="username">{{username}}</span>
+              <span class="username">{{ username }}</span>
               <span class="date">2023-04-04</span>
             </div>
-            <div class="text">道路很远, 我们很近, 相信明天, 是美好的.</div>
-            <div class="operation">
-              <div class="stars">
-                <img src="@/assets/like.png" />
-                <div class="star_num">12</div>
-              </div>
-              <div class="comments">
-                <img src="@/assets/comment.png" />
-                <div class="comment_num">3</div>
-              </div>
-            </div>
+            <div class="text">有没有什么讲述女性安全的电影？</div>
           </div>
         </div>
         <div class="item-tweet">
           <div class="avatar">
-            <img
-              src="https://img0.baidu.com/it/u=1482619835,4153008160&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1680800400&t=3f1a20cb32da7b18c46d216694b23f86"
-              alt="User avatar"
-            />
+            <img src="../../assets/my-post.png" alt="User avatar" />
           </div>
           <div class="content">
             <div class="header">
-              <span class="username">{{username}}</span>
+              <span class="username">{{ username }}</span>
               <span class="date">2023-04-03</span>
             </div>
-            <div class="text">
-              如果你不是一个很善于交际的人，那就一个人吃饭，一个人散步一个人看电影，你会发现，其实一个人比一群人更好过.
-            </div>
-            <div class="operation">
-              <div class="stars">
-                <img src="@/assets/like.png" />
-                <div class="star_num">89</div>
-              </div>
-              <div class="comments">
-                <img src="@/assets/comment.png" />
-                <div class="comment_num">47</div>
-              </div>
-            </div>
+            <div class="text">想去看livehouse，一个人去会不会不安全</div>
           </div>
         </div>
         <div class="item-tweet">
           <div class="avatar">
-            <img
-              src="https://img0.baidu.com/it/u=1482619835,4153008160&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1680800400&t=3f1a20cb32da7b18c46d216694b23f86"
-              alt="User avatar"
-            />
+            <img src="../../assets/my-post.png" alt="User avatar" />
           </div>
           <div class="content">
             <div class="header">
-              <span class="username">{{username}}</span>
-              <span class="date">2023-03-04</span>
+              <span class="username">{{ username }}</span>
+              <span class="date">2023-02-04</span>
             </div>
-            <div class="text">
-              没有谁能一直保持着孤傲，碰多了钉子自然磨掉棱角，这叫做成长！
-            </div>
-            <div class="operation">
-              <div class="stars">
-                <img src="@/assets/like.png" />
-                <div class="star_num">65</div>
-              </div>
-              <div class="comments">
-                <img src="@/assets/comment.png" />
-                <div class="comment_num">13</div>
-              </div>
-            </div>
+            <div class="text">女大学生如何更好的保护自身安全？</div>
           </div>
         </div>
       </div>
@@ -94,9 +54,10 @@
       <!-- 用户信息 -->
       <n-spin size="large" :show="loading">
         <div class="container">
+          <div class="title">个人信息</div>
           <!-- 用户信息 -->
           <n-space vertical :size="distance">
-            <n-space align="center">
+            <!-- <n-space align="center">
               id值:
               <n-input
                 v-model:value="userid"
@@ -105,7 +66,7 @@
                 placeholder="请输入.."
                 readonly
               />
-            </n-space>
+            </n-space> -->
             <n-space align="center">
               用户:
               <n-input
@@ -120,9 +81,10 @@
               密码:
               <n-input
                 v-model:value="password"
-                type="text"
+                type="password"
                 size="large"
                 placeholder="请输入.."
+                :show-password="false"
               />
             </n-space>
             <n-space align="center">
@@ -312,11 +274,18 @@ export default defineComponent({
   );
 
   .hello-username {
+    display: flex;
+    justify-content: center;
     padding-top: 65px;
     h3 {
-      font-size: 24px;
+      font-size: 28px;
       color: #333;
     }
+  }
+  .title-icon {
+    padding-right: 10px;
+    width: 30px;
+    height: 30px;
   }
 
   .user-box {
@@ -329,23 +298,29 @@ export default defineComponent({
       width: 30vw;
       height: 370px;
       border-radius: 12px;
+      .title {
+        text-align: left;
+        font-size: 22px;
+        margin-bottom: 20px;
+      }
       .item-tweet {
-        background-color: #fff;
+        background-color: rgba(255, 255, 255, 0.7);
         border-radius: 12px;
         display: flex;
         align-items: flex-start;
-        margin: 10px 0;
+        margin: 15px 0;
         padding: 10px;
         box-shadow: 5px 5px 5px #eee;
 
         .avatar {
-          margin-right: 10px;
+          margin-right: 15px;
           margin-left: 5px;
+          margin-top: 8px;
 
           img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            // border-radius: 50%;
           }
         }
         .content {
@@ -368,33 +343,9 @@ export default defineComponent({
           }
 
           .text {
+            font-size: 16px;
             text-align: left;
-            margin-top: 5px;
-          }
-
-          .operation {
-            display: flex;
-            align-items: center;
-            margin-top: 5px;
-            .stars {
-              display: flex;
-              align-items: center;
-              margin-right: 20px;
-              img {
-                width: 15px;
-                height: 15px;
-                margin-right: 5px;
-              }
-            }
-            .comments {
-              display: flex;
-              align-items: center;
-              img {
-                width: 15px;
-                height: 15px;
-                margin-right: 5px;
-              }
-            }
+            margin-top: 10px;
           }
         }
       }
@@ -414,6 +365,29 @@ export default defineComponent({
       .container {
         width: 30vw;
       }
+    }
+
+    :deep(.n-space) {
+      margin-top: 10px;
+      font-size: 16px;
+      .n-input{
+        margin-top: 10px;
+        border-radius: 6px;
+        background-color: rgba(255, 255, 255, 0.7);
+      }
+      .n-button{
+        margin-top: 20px;
+      }
+    }
+  }
+
+  .container {
+    .title {
+      margin-top: 5px;
+      margin-bottom: 10px;
+      text-align: left;
+      font-size: 22px;
+      margin-bottom: 20px;
     }
   }
 
