@@ -2,7 +2,7 @@
   <div class="page">
     <HeadNav />
     <div class="main-container">
-      <div class="advice-box-title">发现建议</div>
+      <div class="advice-box-title">发现更多</div>
       <div class="box-item-container">
         <div class="left-container">
           <div class="top-icon">
@@ -10,7 +10,10 @@
           </div>
           <div class="left-title">独居安全</div>
           <div class="left-one">
-            <div class="item-container-one">
+            <div class="item-list">
+              <div class="left-item">· This is an axample article.</div>
+              <div class="left-item">· This is an axample article.</div>
+              <div class="left-item">· This is an axample article.</div>
               <div class="left-item">· This is an axample article.</div>
               <div class="left-item">· This is an axample article.</div>
               <div class="left-item">· This is an axample article.</div>
@@ -21,9 +24,9 @@
           <div class="top-icon">
             <img src="@/assets/advice-2.png" alt="" />
           </div>
-          <div class="left-title">独居安全</div>
+          <div class="left-title">出行安全</div>
           <div class="left-one">
-            <div class="item-container-one">
+            <div class="item-list">
               <div class="left-item">· This is an axample article.</div>
               <div class="left-item">· This is an axample article.</div>
               <div class="left-item">· This is an axample article.</div>
@@ -34,9 +37,9 @@
           <div class="top-icon">
             <img src="@/assets/advice-3.png" alt="" />
           </div>
-          <div class="left-title">独居安全</div>
+          <div class="left-title">日常安全</div>
           <div class="left-one">
-            <div class="item-container-one">
+            <div class="item-list">
               <div class="left-item">· This is an axample article.</div>
               <div class="left-item">· This is an axample article.</div>
               <div class="left-item">· This is an axample article.</div>
@@ -47,9 +50,9 @@
           <div class="top-icon">
             <img src="@/assets/advice-4.png" alt="" />
           </div>
-          <div class="left-title">独居安全</div>
+          <div class="left-title">其他</div>
           <div class="left-one">
-            <div class="item-container-one">
+            <div class="item-list">
               <div class="left-item">· This is an axample article.</div>
               <div class="left-item">· This is an axample article.</div>
               <div class="left-item">· This is an axample article.</div>
@@ -104,8 +107,9 @@ export default defineComponent({
   );
 
   .advice-box-title {
+    margin-left: 60px;
     font-size: 28px;
-    font-weight: 600;
+    font-weight: 550;
     color: #444;
     text-align: left;
     padding-left: 40px;
@@ -113,6 +117,7 @@ export default defineComponent({
   }
 
   .box-item-container {
+    margin-left: 50px;
     position: relative;
     width: 100%;
     display: flex;
@@ -121,14 +126,33 @@ export default defineComponent({
 
     .left-container {
       margin-top: 30px;
-      width: 29%;
-      height: 250px;
+      width: 27%;
+      height: 280px;
       margin-left: 40px;
-      background-color: #fff;
+      background-color: rgba(255, 255, 255, 0.7);
       border-radius: 12px;
       box-shadow: 5px 5px 5px #eee;
       padding: 20px;
       box-sizing: border-box;
+      .item-list{
+        height: 120px;
+        overflow-y: scroll;
+        
+      }
+      // 滚动条样式
+    .item-list::-webkit-scrollbar {
+      width: 4px;
+    }
+    .item-list::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      // background: rgba(0, 0, 0, 0.2);
+      background: transparent;
+    }
+    .item-list::-webkit-scrollbar-track {
+      border-radius: 0;
+      // background: rgba(0, 0, 0, 0.1);
+      background: transparent;
+    }
       .top-icon {
         text-align: left;
         img {
@@ -137,6 +161,7 @@ export default defineComponent({
         }
       }
       .left-title {
+        margin-left: 10px;
         margin-top: 12px;
         height: 50px;
         font-size: 18px;
@@ -152,17 +177,10 @@ export default defineComponent({
         text-align: left;
       }
       .left-item {
-        line-height: 26px;
+        height: 38px;
+        line-height: 38px;
         font-size: 14px;
         color: #999;
-        text-align: left;
-      }
-      .more-box {
-        font-size: 14px;
-        height: 40px;
-        line-height: 40px;
-        position: relative;
-        margin-left: 20px;
         text-align: left;
       }
     }
