@@ -6,6 +6,7 @@ import Register from "@/views/Register/index.vue"
 import Community from "@/views/Community/index.vue"
 import Advice from "@/views/Advice/index.vue"
 import Article from "@/views/Article/index.vue"
+import NewDetail from "@/views/NewDetail/index.vue"
 import Post from "@/views/Post/index.vue"
 import User from "@/views/User/index.vue"
 import Center from "@/views/Center/index.vue"
@@ -85,6 +86,14 @@ const routes = [
         component: Center,
         meta: {
             requiresAuth: true,
+        },
+    },
+    {
+        path: '/newdetail',
+        name: 'NewDetail',
+        component: NewDetail,
+        meta: {
+            requiresAuth: false,
         },
     },
 ]

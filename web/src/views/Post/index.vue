@@ -153,8 +153,6 @@ export default defineComponent({
       line-height: 50px;
       text-align: left;
       margin-top: 20px;
-      // background-color: #fff;
-      // box-shadow: 5px 5px 5px #eee;
       border-radius: 12px;
       font-weight: 600;
       color: #666;
