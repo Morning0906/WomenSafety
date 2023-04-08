@@ -23,7 +23,7 @@
     </div>
     <!-- 首页显示 -->
     <div class="home_title" v-show="resultHeightStyle == '380px'">
-      Women Safety
+      Women's Safety
     </div>
   </div>
 </template>
