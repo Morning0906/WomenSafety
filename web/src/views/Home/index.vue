@@ -172,8 +172,8 @@
                 alt=""
                 srcset=""
               />
-              <a href="https://m.weibo.cn/status/4879147178397748"
-                >联合国秘书长：为妇女和女孩打造安全数字环境，向侵犯女性的网络用户与平台追责</a
+              <router-link to="/newdetail"
+                >联合国秘书长：为妇女和女孩打造安全数字环境，向侵犯女性的网络用户与平台追责</router-link
               >
             </div>
             <div class="main-news-article">
@@ -187,9 +187,8 @@
                 alt=""
                 srcset=""
               />
-              <a
-                href="https://news.sina.com.cn/sx/2023-02-01/detail-imyeeraq6783010.shtml"
-                >多品牌联合发起女性安全公益项目，推广三短一长求助眼语</a
+              <router-link to="/newdetail"
+                >多品牌联合发起女性安全公益项目，推广三短一长求助眼语</router-link
               >
             </div>
             <div class="main-news-article">
@@ -202,9 +201,8 @@
                 alt=""
                 srcset=""
               />
-              <a
-                href="http://k.sina.com.cn/article_2165620670_8114bfbe01901533h.html"
-                >2022年度女性新闻｜每一个事件中的“她”，都可能是“我们”</a
+              <router-link to="/newdetail"
+                >2022年度女性新闻｜每一个事件中的“她”，都可能是“我们”</router-link
               >
             </div>
             <div class="main-news-article">
@@ -218,9 +216,8 @@
                 alt=""
                 srcset=""
               />
-              <a
-                href="http://paper.cnwomen.com.cn/html/2021-05/10/nw.D110000zgfnb_20210510_1-2.htm"
-                >网约车女性出行报告发布，女性安全出行问题应得到持续关注</a
+              <router-link to="/newdetail"
+                >网约车女性出行报告发布，女性安全出行问题应得到持续关注</router-link
               >
             </div>
             <div class="main-news-article">
@@ -414,9 +411,11 @@ export default defineComponent({
         justify-content: center;
         align-items: center;
         margin-top: 20px;
-        :deep(.el-pagination.is-background
-            .el-pager
-            li:not(.is-disabled).is-active) {
+        :deep(
+            .el-pagination.is-background
+              .el-pager
+              li:not(.is-disabled).is-active
+          ) {
           color: #000;
           background-color: rgba(
             255,

@@ -11,12 +11,12 @@
           <div class="left-title">独居安全</div>
           <div class="left-one">
             <div class="item-list">
-              <div class="left-item">· This is an axample article.</div>
-              <div class="left-item">· This is an axample article.</div>
-              <div class="left-item">· This is an axample article.</div>
-              <div class="left-item">· This is an axample article.</div>
-              <div class="left-item">· This is an axample article.</div>
-              <div class="left-item">· This is an axample article.</div>
+              <div class="left-item">· 女士一个人住, 有哪些需要注意?</div>
+              <div class="left-item">· 我被标记了! 独居要警惕.</div>
+              <div class="left-item">· 这些都是需要知道的常识.</div>
+              <div class="left-item">· 一个人在外面, 一定要保护好自己.</div>
+              <div class="left-item">· 独居生活注意指北.</div>
+              <div class="left-item">· 在上海的独居生活. 指南篇!</div>
             </div>
           </div>
         </div>
@@ -27,9 +27,9 @@
           <div class="left-title">出行安全</div>
           <div class="left-one">
             <div class="item-list">
-              <div class="left-item">· This is an axample article.</div>
-              <div class="left-item">· This is an axample article.</div>
-              <div class="left-item">· This is an axample article.</div>
+              <div class="left-item">· 出门必备的八大物品</div>
+              <div class="left-item">· 出门打车的注意事项——与司机友好沟通.</div>
+              <div class="left-item">· 如何与小区邻居处好关系, 提高安全性.</div>
             </div>
           </div>
         </div>
@@ -40,9 +40,9 @@
           <div class="left-title">日常安全</div>
           <div class="left-one">
             <div class="item-list">
-              <div class="left-item">· This is an axample article.</div>
-              <div class="left-item">· This is an axample article.</div>
-              <div class="left-item">· This is an axample article.</div>
+              <div class="left-item">· 不要喝陌生人给你的水.</div>
+              <div class="left-item">· 独自在公共场合, 不喝离开过自己视线的水.</div>
+              <div class="left-item">· 坐电梯时, 尽量不要背对陌生人.</div>
             </div>
           </div>
         </div>
@@ -53,9 +53,9 @@
           <div class="left-title">其他</div>
           <div class="left-one">
             <div class="item-list">
-              <div class="left-item">· This is an axample article.</div>
-              <div class="left-item">· This is an axample article.</div>
-              <div class="left-item">· This is an axample article.</div>
+              <div class="left-item">· 给紧急联系人电话设置快速拨号.</div>
+              <div class="left-item">· 外出住宿时, 尽量选择正规品牌酒店就住.</div>
+              <div class="left-item">· 睡前一定要反锁房门.</div>
             </div>
           </div>
         </div>

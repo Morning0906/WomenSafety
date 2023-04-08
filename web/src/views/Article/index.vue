@@ -52,22 +52,26 @@
         <div class="right-title">更多文章</div>
         <div class="right-one">
           <div class="item-container-one">
-            <div class="right-item">This is an axample article.</div>
-            <div class="right-item">This is an axample article.</div>
-            <div class="right-item">This is an axample article.</div>
+            <div class="right-item">· 不要喝陌生人给你的水.</div>
+            <div class="right-item">· 坐电梯时, 尽量不要背对陌生人.</div>
+            <div class="right-item">
+              · 独自在公共场合, 不喝离开过自己视线的水.
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <Footer />
   </div>
 </template>
 
 <script>
 import { defineComponent, ref } from "vue";
 import HeadNav from "@/components/HeadNav";
+import Footer from "@/components/Footer";
 
 export default defineComponent({
-  components: { HeadNav },
+  components: { HeadNav, Footer },
   setup() {
     // 定义变量
     const data = ref(``);
@@ -80,9 +84,6 @@ export default defineComponent({
 
 <style lang="less" scoped>
 .page {
-  position: absolute;
-  width: 100%;
-  height: 100%;
   background-color: #f0eeea;
   overflow-y: hidden;
 }
@@ -124,7 +125,7 @@ export default defineComponent({
     .article-container {
       padding: 20px;
       font-size: 18px;
-      height: 64%;
+      height: 600px;
       margin-top: 30px;
       margin-bottom: 30px;
       background-color: rgba(255, 255, 255, 1);

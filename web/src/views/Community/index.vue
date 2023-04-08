@@ -31,19 +31,16 @@
               ·
               女生一个人出门旅行，有哪些值得注意的安全问题？有什么女性出行安全经验分享？
             </div>
-            <div class="news-item">
-              · 卧室里的烟雾报警器有红灯一闪一闪的，是摄像头吗？可以遮挡住吗？
-            </div>
+            <div class="news-item">· 外出住宿时, 对酒店需要进行哪些检查?</div>
             <div class="news-item">
               ·
               女性在家中穿着得体的情况下，夜晚能拉开窗帘吗？（家里还有其它人）？
             </div>
             <div class="news-item">
-              · 卧室里的烟雾报警器有红灯一闪一闪的，是摄像头吗？可以遮挡住吗？
+              · 独自在公共场合, 有什么需要注意的安全问题吗?
             </div>
             <div class="news-item">
-              ·
-              女性在家中穿着得体的情况下，夜晚能拉开窗帘吗？（家里还有其它人）？
+              · 卧室里的烟雾报警器有红灯一闪一闪的，是摄像头吗？可以遮挡住吗？
             </div>
           </div>
         </div>
@@ -60,21 +57,21 @@
         <div class="left-one">
           <div class="left-item">
             <div class="product-image">
-              <img src="@/assets/111.jpg" alt="" width="60px" height="60px" />
+              <img src="https://img10.360buyimg.com/n1/jfs/t1/95619/39/32470/83274/638f209eEec0f650e/a2e696723c576a0b.jpg" alt="" width="60px" height="60px" />
             </div>
             <div class="content">阻门器顶门器女性出差旅行家用便携门阻</div>
           </div>
           <div class="left-item">
             <div class="product-image">
-              <img src="@/assets/111.jpg" alt="" width="60px" height="60px" />
+              <img src="https://img11.360buyimg.com/n7/jfs/t1/215817/36/21118/58598/632a7ca7E3b0fd107/c543d4c418134c4f.jpg" alt="" width="60px" height="60px" />
             </div>
-            <div class="content">阻门器顶门器女性出差旅行家用便携门阻</div>
+            <div class="content">恰冠安全锁独居女生免打孔好物单身公寓</div>
           </div>
           <div class="left-item">
             <div class="product-image">
-              <img src="@/assets/111.jpg" alt="" width="60px" height="60px" />
+              <img src="https://img12.360buyimg.com/n7/jfs/t1/164689/33/32313/82306/6376207dE364638e0/ee8bd43e14d15fb6.jpg.avif" alt="" width="60px" height="60px" />
             </div>
-            <div class="content">阻门器顶门器女性出差旅行家用便携门阻</div>
+            <div class="content">WORMS防身神器防狼用品女生</div>
           </div>
         </div>
       </div>
