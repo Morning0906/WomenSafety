@@ -136,7 +136,7 @@
           </div>
         </div>
         <div class="right-bottom-icon">
-          <img class="beauty_icon" src="../../assets/beauty_bg_icon.png" />
+          <img class="beauty_icon" src="../../assets/right_bottom_bg.jpg" />
         </div>
       </div>
     </div>

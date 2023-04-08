@@ -52,12 +52,25 @@
         <div class="right-title">更多文章</div>
         <div class="right-one">
           <div class="item-container-one">
-            <div class="right-item">· 不要喝陌生人给你的水.</div>
-            <div class="right-item">· 坐电梯时, 尽量不要背对陌生人.</div>
-            <div class="right-item">
-              · 独自在公共场合, 不喝离开过自己视线的水.
+            <div class="item-container-one">
+              <div class="right-item">
+                · “女性安全日”活动在全球范围内举行，呼吁加强对女性暴力的打击力度
+              </div>
+              <div class="right-item">
+                · 警方成功破获一起性侵案，保护了多名受害女性的权益
+              </div>
+              <div class="right-item">
+                ·
+                女性在公共场合遭遇性骚扰事件不断，社会吁请加强教育宣传和监管力度
+              </div>
+              <div class="right-item">
+                · 国际妇女节：呼吁全球实现性别平等，保障女性安全和权益
+              </div>
             </div>
           </div>
+        </div>
+        <div class="right-bottom-icon">
+          <img class="beauty_icon" src="../../assets/right_bottom_bg.jpg" />
         </div>
       </div>
     </div>
@@ -128,7 +141,7 @@ export default defineComponent({
       height: 600px;
       margin-top: 30px;
       margin-bottom: 30px;
-      background-color: rgba(255, 255, 255, 1);
+      background-color: rgba(255, 255, 255, 0.7);
       box-shadow: 5px 5px 5px #eee;
       border-radius: 12px;
       overflow-y: scroll;
@@ -178,11 +191,20 @@ export default defineComponent({
       border-radius: 12px;
       padding: 10px 0;
     }
+    .right-bottom-icon {
+      width: 100%;
+      height: 100%;
+      .beauty_icon {
+        width: 100%;
+        box-shadow: 5px 5px 5px #eee;
+        border-radius: 12px;
+      }
+    }
     .right-item {
-      height: 40px;
       line-height: 40px;
       font-size: 16px;
       margin-left: 20px;
+      margin-right: 10px;
       text-align: left;
     }
     .more-box {

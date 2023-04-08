@@ -57,7 +57,22 @@
             <div class="right-item">
               · 独自在公共场合, 不喝离开过自己视线的水.
             </div>
+            <div class="right-item">
+              · 出门在外, 女性须知!!
+            </div>
+            <div class="right-item">
+              · 独自在公共场合, 有什么需要注意的安全问题吗?
+            </div>
+            <div class="right-item">
+              · 酒店宾馆, 都有哪些需要注意的问题?
+            </div>
+            <div class="right-item">
+              · 女生出门旅行，有哪些值得注意的安全问题？
+            </div>
           </div>
+        </div>
+        <div class="right-bottom-icon">
+          <img class="beauty_icon" src="../../assets/right_bottom_bg.jpg" />
         </div>
       </div>
     </div>
@@ -128,7 +143,7 @@ export default defineComponent({
       height: 600px;
       margin-top: 30px;
       margin-bottom: 30px;
-      background-color: rgba(255, 255, 255, 1);
+      background-color: rgba(255, 255, 255, 0.7);
       box-shadow: 5px 5px 5px #eee;
       border-radius: 12px;
       overflow-y: scroll;
@@ -178,11 +193,20 @@ export default defineComponent({
       border-radius: 12px;
       padding: 10px 0;
     }
+    .right-bottom-icon {
+      width: 100%;
+      height: 100%;
+      .beauty_icon {
+        width: 100%;
+        box-shadow: 5px 5px 5px #eee;
+        border-radius: 12px;
+      }
+    }
     .right-item {
-      height: 40px;
       line-height: 40px;
       font-size: 16px;
       margin-left: 20px;
+      margin-right: 10px;
       text-align: left;
     }
     .more-box {
