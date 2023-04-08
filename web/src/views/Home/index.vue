@@ -332,16 +332,16 @@ export default defineComponent({
     }
     .left-two {
       margin-top: 30px;
-      height: 300px;
+      height: auto;
       .item-container-two {
-        height: 200px;
+        height: auto;
       }
     }
     .left-three {
       margin-top: 30px;
-      height: 350px;
+      height: auto;
       .item-container-three {
-        height: 250px;
+        height: auto;
       }
     }
     .left-mini-title {

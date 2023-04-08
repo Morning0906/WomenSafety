@@ -3,69 +3,129 @@
     <HeadNav />
     <div class="main-container">
       <div class="left-container">
-        <div class="left-title">女生独自出游要注意什么？如何保证安全？</div>
+        <div class="left-title">
+          2022年度女性新闻｜每一个事件中的“她”，都可能是“我们”
+        </div>
         <div class="article-container">
+          <div class="cr-box">
+            <div class="cr-name">@中国妇女报</div>
+            <div class="time-box">2023-01-02 06:46</div>
+          </div>
           <p>
-            独自出行本来是一个很自由的事情，但是因为男女主角不平等，女性独自出行要承担更大的风险。所以说你想要自由出行，就不能考虑太多安全问题，相反的，你要是考虑出行安全，我麻烦你做好攻略，别那么自由。
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.习近平总书记致信祝贺中国儿童中心成立40周年，对妇女儿童工作特别是校外教育工作提出殷切希望
           </p>
           <br />
           <p>
-            我身边有很多姑娘看我一个人走了这么多地方，特别羡慕，问了我很多次，问题不外乎就是关于安全。其实我是这样想的，你如果想要安全，就一定会安全，你的意识决定你的行为。首先，出行之前，一个女孩子，不要动不动就说走就走的旅行，这样你很可能说丢就丢。
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在中国儿童中心成立40周年之际，习近平总书记发来贺信强调，40年来，中国儿童中心坚守为党育人、为国育才初心使命，落实立德树人根本任务，服务广大儿童，为培养社会主义事业建设者和接班人作出了积极贡献。希望你们发扬光荣传统，团结广大儿童工作者，做儿童成长的引路人、儿童权益的守护人、儿童未来的筑梦人，用心用情促进儿童健康成长、全面发展。习近平总书记的贺信为新时代儿童工作和儿童事业发展指明了前进方向、提供了根本遵循，对妇女儿童工作特别是校外教育工作提出了殷切希望。
           </p>
           <br />
           <p>
-            最基本的，把大致想去的地方制定好路线，了解各地所需时间，即便不定好车票和机票，也要有一个基本的筹划，尽量避免在路上遇到所谓的兴趣相投的人就跟人家走，同性异性都不可以，毕竟你不知道人家什么身份，可能守株待兔很久了，就等着你这种傻狍子上钩呢。
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.党的二十大报告提出坚持男女平等基本国策，保障妇女儿童合法权益
           </p>
           <br />
           <p>
-            其次，住宿很重要的，最近那个798附近的酒店闹得沸沸扬扬，而我一直都相信这不是一次偶然事件，肯定有姑娘已经遇害了，只不过没被曝光，从当地警方和宾馆人员的态度就可以看出他们一定是经历过这种事情才这么淡定。
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;党的二十大报告明确提出，坚持男女平等基本国策，保障妇女儿童合法权益；重视女干部培养选拔工作，发挥女干部重要作用；深化工会、共青团、妇联等群团组织改革和建设，有效发挥桥梁纽带作用。
           </p>
           <br />
           <p>
-            独自出行我建议住青年旅舍，但是不要住国际青旅。很多人说国际青旅好啊，可以跟外国人练习口语，别傻了，你顶多住一个星期，二十年都学不会的口语一个星期就练成了？你咋不上天呢？不过这一个星期可能你就被骗炮了！前几天我住了一家很有名的国青，外国人这个多啊，我一个姑娘一过去，背后的目光刺得我凉飕飕的。同屋的姑娘似乎很喜欢外国人，第一天就和好几个外国人加了微信，然后第二天我们明明说好晚上一起去景点，她硬是拉了两个外国人一起来，可想而知，逛完景点，老外就拉着你去酒吧，我直接拒绝，这姑娘就跟着去了，第二天早上我睡醒了姑娘还没回来，我也不愿意想发生了什么，可能人家就是单纯地喝酒了呢，吼吼吼。但是奇迹发生了，中午我逛完回来，俩人在青旅楼下拥吻，算了，人家可能就是单纯地国际礼仪，反正我不懂。同屋的另一个姑娘跟我说，这个外国人常住，听其他人说，这个外国人聊天的时候最常说的就是中国姑娘，试问你跟这样的人怎么联系口语？
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.30年后迎来“大修”
+            新修订的妇女权益保障法审议通过
           </p>
           <br />
           <p>
-            come on?oh yeah?give me more?u are so
-            hard？反正我不懂。对了，当时不是两个外国人跟我们一起去吗？其中一个跟我一起回来的，路上一直问我要不要去喝点儿什么，问我能不能吃我，能不能吃我？我有毒，不能吃！真是哔了狗了。肯定有人要问我，那你当时为什么跟他们一起去，这个就是后面要说的猪队友！先说怎么选择青旅住宿！
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10月30日，十三届全国人大常委会第三十七次会议审议通过新修订的《中华人民共和国妇女权益保障法》，2023年1月1日正式施行。这是该法实施30年的又一次“大修”，新法由过去的九章六十一条扩大至十章八十六条，积极适应新时代、新任务、新要求，对妇女权益保障制度机制作出更加全面系统的规定。
           </p>
           <br />
-          <ul>
-            <li>
-              一.开业日期不能超过两年，一方面保证设施新，另一方面保证服务态度，刚开的青旅是非常注重评价的，所以一般服务态度和热情程度非常高。
-            </li>
-            <li>
-              二.尽量选择热门景区附近的景点，一方面出行方便，另一方面一旦出现问题需要退住，可以马上找到下家。
-            </li>
-            <li>
-              三.选择男老板，毕竟男人有保护欲，面对独自出行的姑娘会尤其照顾，不要担心他对你怎么样，人家是开店的，不至于为了占你便宜毁了店的名声！
-            </li>
-            <li>
-              四.选择评分高的，有人说评分都是刷出来的，但是根据我的经验，百分之八十还是确实好的，所以参考价值很高。文章的最后面会推荐我住过的推荐的青旅或者客栈，不能说环境都第一，但是老板肯定是特别好的，安全可以保障。第三就是猪队友了。因为是独自出行，很有可能在路上遇到一些人就跟着一起走了，玩着玩着就发现真不是一路人，这种时候赶紧退出，有人说不好意思开口说，那就没办法了，你不好意思就得忍着，就玩得不爽，你为了一个让你不开心的陌生人放弃自己的旅行，你活该！
-            </li>
-          </ul>
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.北京冬奥会女性参赛比例创历届之最
+          </p>
           <br />
-          <div class="article-cr">cr:小红书</div>
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2022年北京冬奥会共2892名运动员参赛，其中1314名是女性，女性运动员参赛比例为45.44%，女性参赛比例创历届之最。北京冬奥会共设置109个小项，女性运动员参加46个小项，新增7个小项，其中单人雪车项目为首次设立，而且只设女子项目。
+          </p>
+          <br />
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.女性科技人力资源增长迅速
+            性别比例更趋均衡
+          </p>
+          <br />
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6月25日，中国科协创新战略研究院发布《中国科技人力资源发展研究报告（2020）》。报告显示，截至2020年底，我国科技人力资源总量为11234.1万人，继续居世界首位。其中，女性科技人力资源增长迅速，占总量比例从2005年的约三分之一提高到2019年的40.1%，性别比例更加趋于均衡。关注女科学家在科技领域的创新和发展，也逐步成为社会共识。
+          </p>
+          <br />
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.中国女足时隔16年重回亚洲之巅
+          </p>
+          <br />
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2月6日，中国女足在2022年女足亚洲杯决赛中击败韩国队，第九次夺得亚洲杯冠军，时隔16年再次站上亚洲之巅。中国女足本届亚洲杯历程堪称完美，在小组赛阶段共打进11个球且零封对手，而后的四分之一决赛、半决赛和决赛又连续上演逆转好戏。中国女足守门员朱钰获得“金手套奖”，前锋王珊珊荣膺“最佳球员”。
+          </p>
+          <br />
         </div>
       </div>
       <div class="right-container">
-        <div class="right-title">更多文章</div>
+        <div class="right-title">
+          <img
+            class="title-icon"
+            src="../../assets/advice.png"
+            alt=""
+            srcset=""
+          />更多文章
+        </div>
         <div class="right-one">
           <div class="item-container-one">
-            <div class="item-container-one">
-              <div class="right-item">
-                · “女性安全日”活动在全球范围内举行，呼吁加强对女性暴力的打击力度
-              </div>
-              <div class="right-item">
-                · 警方成功破获一起性侵案，保护了多名受害女性的权益
-              </div>
-              <div class="right-item">
-                ·
-                女性在公共场合遭遇性骚扰事件不断，社会吁请加强教育宣传和监管力度
-              </div>
-              <div class="right-item">
-                · 国际妇女节：呼吁全球实现性别平等，保障女性安全和权益
-              </div>
+            <div class="right-item">
+              <img
+                class="news-icon"
+                src="../../assets/article.png"
+                alt=""
+                srcset=""
+              />
+              联合国秘书长：为妇女和女孩打造安全数字环境，向侵犯女性的网络用户与平台追责
+            </div>
+            <div class="right-item">
+              <img
+                class="news-icon"
+                src="../../assets/article.png"
+                alt=""
+                srcset=""
+              />多品牌联合发起女性安全公益项目，推广三短一长求助眼语
+            </div>
+            <div class="right-item">
+              <img
+                class="news-icon"
+                src="../../assets/article.png"
+                alt=""
+                srcset=""
+              />
+              网约车女性出行报告发布，女性安全出行问题应得到持续关注
+            </div>
+            <div class="right-item">
+              <img
+                class="news-icon"
+                src="../../assets/article.png"
+                alt=""
+                srcset=""
+              />
+              T3出行推多项举措,保障女性深夜出行安全
+            </div>
+            <div class="right-item">
+              <img
+                class="news-icon"
+                src="../../assets/article.png"
+                alt=""
+                srcset=""
+              />
+              滴滴顺风车推出女性专属保护计划,就安全产品征求公众意见
+            </div>
+            <div class="right-item">
+              <img
+                class="news-icon"
+                src="../../assets/article.png"
+                alt=""
+                srcset=""
+              />
+              《民法典》对婚内女性权利的保护
             </div>
           </div>
         </div>
@@ -131,7 +191,7 @@ export default defineComponent({
       font-size: 20px;
       line-height: 50px;
       text-align: center;
-      background-color: rgba(255, 255, 255, 1);
+      background-color: rgba(255, 255, 255, 0.7);
       box-shadow: 5px 5px 5px #eee;
       border-radius: 12px;
     }
@@ -146,9 +206,20 @@ export default defineComponent({
       border-radius: 12px;
       overflow-y: scroll;
       text-align: left;
-      .article-cr {
-        text-align: right;
-        margin-bottom: 10px;
+      .cr-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 15px;
+        .cr-name {
+          margin-right: 10px;
+          font-weight: 500;
+          color: blue;
+        }
+        .time-box {
+          text-align: center;
+          color: silver;
+        }
       }
       ul {
         li {
@@ -159,6 +230,7 @@ export default defineComponent({
 
     // 滚动条样式
     .article-container::-webkit-scrollbar {
+      height: 95%;
       width: 4px;
     }
     .article-container::-webkit-scrollbar-thumb {
@@ -178,15 +250,18 @@ export default defineComponent({
       height: 50px;
       font-size: 20px;
       line-height: 50px;
-      text-align: center;
-      background-color: rgba(255, 255, 255, 1);
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.7);
       box-shadow: 5px 5px 5px #eee;
       border-radius: 12px;
     }
     .right-one {
+      width: 100%;
       margin-top: 30px;
       margin-bottom: 30px;
-      background-color: rgba(255, 255, 255, 1);
+      background-color: rgba(255, 255, 255, 0.7);
       box-shadow: 5px 5px 5px #eee;
       border-radius: 12px;
       padding: 10px 0;
@@ -201,11 +276,18 @@ export default defineComponent({
       }
     }
     .right-item {
+      width: 85%;
+      height: 50px;
       line-height: 40px;
       font-size: 16px;
       margin-left: 20px;
       margin-right: 10px;
       text-align: left;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
     .more-box {
       font-size: 14px;
@@ -215,6 +297,17 @@ export default defineComponent({
       margin-left: 20px;
       text-align: left;
     }
+  }
+
+  .title-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .news-icon {
+    width: 20px;
+    height: 20px;
+    padding-right: 10px;
   }
 }
 </style>
