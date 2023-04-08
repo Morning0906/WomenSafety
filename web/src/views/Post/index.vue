@@ -3,9 +3,7 @@
     <HeadNav />
     <div class="main-container">
       <div class="left-container">
-        <div class="left-title">
-          女生独自坐长途卧铺火车怎样比较安全？
-        </div>
+        <div class="left-title">女生独自坐长途卧铺火车怎样比较安全？</div>
         <div class="left-title2">
           <div class="author-box">@momo</div>
           <div class="time-box">2023-04-26 19:44</div>
@@ -33,19 +31,27 @@
         <div class="comment-container">
           <div class="comment-item">
             <div class="comment-author">Morning早早：</div>
-            <div class="comment-content">安全性排名：硬卧上铺>硬卧中铺>硬卧下铺>软卧>高软。</div>
+            <div class="comment-content">
+              安全性排名：硬卧上铺>硬卧中铺>硬卧下铺>软卧>高软。
+            </div>
           </div>
           <div class="comment-item">
             <div class="comment-author">散步的牛油果：</div>
-            <div class="comment-content">穿方便穿脱的鞋子，别穿太贵的鞋子，可能会丢。</div>
+            <div class="comment-content">
+              穿方便穿脱的鞋子，别穿太贵的鞋子，可能会丢。
+            </div>
           </div>
           <div class="comment-item">
             <div class="comment-author">葡萄you：</div>
-            <div class="comment-content">我个人是戴口罩 装得很凶或者有什么传染疾病的那种</div>
+            <div class="comment-content">
+              我个人是戴口罩 装得很凶或者有什么传染疾病的那种
+            </div>
           </div>
           <div class="comment-item">
             <div class="comment-author">suhdvi：</div>
-            <div class="comment-content">出现任何问题，立刻找你这节车厢的列车员，就赖上他了。（我爸是铁路系统的）</div>
+            <div class="comment-content">
+              出现任何问题，立刻找你这节车厢的列车员，就赖上他了。（我爸是铁路系统的）
+            </div>
           </div>
         </div>
       </div>
@@ -68,7 +74,7 @@
                 alt=""
                 srcset=""
               />
-              This is an axample article.
+              · 女性在家中时，夜晚能拉开窗帘吗？
             </div>
             <div class="right-item">
               <img
@@ -76,7 +82,8 @@
                 src="../../assets/discuss.png"
                 alt=""
                 srcset=""
-              />This is an axample article.
+              />
+              · 有什么女性出行安全经验分享？
             </div>
             <div class="right-item">
               <img
@@ -84,9 +91,52 @@
                 src="../../assets/discuss.png"
                 alt=""
                 srcset=""
-              />This is an axample article.
+              />· 酒店插孔里如何鉴别摄像头？
+            </div>
+            <div class="right-item">
+              <img
+                class="title-icon-2"
+                src="../../assets/discuss.png"
+                alt=""
+                srcset=""
+              />· 遭遇家暴时, 应该怎么办？
+            </div>
+            <div class="right-item">
+              <img
+                class="title-icon-2"
+                src="../../assets/discuss.png"
+                alt=""
+                srcset=""
+              />· 面对离婚, 需要知道的问题？
+            </div>
+            <div class="right-item">
+              <img
+                class="title-icon-2"
+                src="../../assets/discuss.png"
+                alt=""
+                srcset=""
+              />· 如何与丈夫进行有效沟通？
+            </div>
+            <div class="right-item">
+              <img
+                class="title-icon-2"
+                src="../../assets/discuss.png"
+                alt=""
+                srcset=""
+              />· 女性在职场中需要注意的问题？
+            </div>
+            <div class="right-item">
+              <img
+                class="title-icon-2"
+                src="../../assets/discuss.png"
+                alt=""
+                srcset=""
+              />· 生理期有什么值得注意的？
             </div>
           </div>
+        </div>
+        <div class="right-bottom-icon">
+          <img class="beauty_icon" src="../../assets/beauty_bg_icon.png" />
         </div>
       </div>
     </div>
@@ -194,7 +244,7 @@ export default defineComponent({
     .comment-container {
       height: auto;
       margin-top: 10px;
-      background-color: rgba(255, 255, 255, 0.7) ;
+      background-color: rgba(255, 255, 255, 0.7);
       box-shadow: 5px 5px 5px #eee;
       border-radius: 12px;
       margin-bottom: 30px;
@@ -314,13 +364,14 @@ export default defineComponent({
       }
     }
 
-    .more-box {
-      font-size: 14px;
-      height: 40px;
-      line-height: 40px;
-      position: relative;
-      margin-left: 20px;
-      text-align: left;
+    .right-bottom-icon {
+      width: 100%;
+      height: 100%;
+      .beauty_icon {
+        width: 100%;
+        box-shadow: 5px 5px 5px #eee;
+        border-radius: 12px;
+      }
     }
   }
 }

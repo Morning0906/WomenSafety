@@ -158,6 +158,11 @@ export default defineComponent({
   display: flex;
   align-items: center;
   justify-content: center;
+  background-image: linear-gradient(
+    174.2deg,
+    rgba(255, 244, 228, 1) 7.1%,
+    rgba(240, 246, 238, 1) 67.4%
+  );
 }
 .i-form {
   box-sizing: border-box;
