@@ -92,7 +92,7 @@
                 alt=""
                 srcset=""
               />
-              独自在公共场合, 有什么需要注意的安全问题吗?
+              独自在公共场合时需要注意的安全细节
             </div>
             <div class="right-item">
               <img
@@ -101,7 +101,7 @@
                 alt=""
                 srcset=""
               />
-              酒店宾馆, 都有哪些需要注意的问题?
+              出门住酒店宾馆, 都有哪些需要注意的问题?
             </div>
             <div class="right-item">
               <img
@@ -110,7 +110,7 @@
                 alt=""
                 srcset=""
               />
-              女生出门旅行，有哪些值得注意的安全问题？
+              女生出门旅行中值得注意的安全问题
             </div>
           </div>
         </div>
@@ -250,6 +250,7 @@ export default defineComponent({
       }
     }
     .right-item {
+      width: 85%;
       height: 50px;
       line-height: 40px;
       font-size: 16px;
@@ -258,6 +259,9 @@ export default defineComponent({
       text-align: left;
       display: flex;
       align-items: center;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
     .more-box {
       font-size: 14px;
