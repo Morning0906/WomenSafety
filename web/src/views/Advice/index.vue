@@ -99,7 +99,7 @@ export default defineComponent({
 .main-container {
   position: relative;
   width: 100%;
-  padding-bottom: 160px;
+  padding-bottom: 60px;
   background-image: linear-gradient(
     174.2deg,
     rgba(255, 244, 228, 1) 7.1%,
