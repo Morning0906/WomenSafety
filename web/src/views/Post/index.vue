@@ -53,6 +53,12 @@
               出现任何问题，立刻找你这节车厢的列车员，就赖上他了。（我爸是铁路系统的）
             </div>
           </div>
+          <div class="comment-item">
+            <div class="comment-author">蓝色空间：</div>
+            <div class="comment-content">
+              把东西放在靠窗的一边，不要放脚边！
+            </div>
+          </div>
         </div>
       </div>
       <div class="right-container">
@@ -257,7 +263,7 @@ export default defineComponent({
       font-weight: 600;
       color: #454;
       margin-top: 40px;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
       margin-left: 5px;
       text-align: left;
     }
