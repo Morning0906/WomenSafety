@@ -8,3 +8,10 @@ export function queryAdvise(data) {
     });
 }
 
+export function queryNews(data) {
+    return request({
+        url: `queryNews`,
+        method: "get",
+        data,
+    });
+}

@@ -246,7 +246,7 @@
 import { defineComponent, ref, onMounted, reactive } from "vue";
 import HeadNav from "@/components/HeadNav";
 import Footer from "@/components/Footer";
-import { queryAdvise } from "@/api/index";
+import { queryAdvise, queryNews } from "@/api/index";
 import { ElCarousel, ElPagination } from "element-plus";
 
 export default defineComponent({
@@ -288,6 +288,10 @@ export default defineComponent({
       for (let item of dataArr3) {
         Daily.push(item);
       }
+
+      // 发起新闻列表请求
+      const newsResult = await queryNews();
+      console.log(newsResult);
     });
 
     return {
@@ -411,11 +415,9 @@ export default defineComponent({
         justify-content: center;
         align-items: center;
         margin-top: 20px;
-        :deep(
-            .el-pagination.is-background
-              .el-pager
-              li:not(.is-disabled).is-active
-          ) {
+        :deep(.el-pagination.is-background
+            .el-pager
+            li:not(.is-disabled).is-active) {
           color: #000;
           background-color: rgba(
             255,
