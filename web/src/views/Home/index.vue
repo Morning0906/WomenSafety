@@ -165,64 +165,19 @@
             />最新资讯
           </div>
           <div class="main-news">
-            <div class="main-news-title">
-              <img
-                class="title-icon-2"
-                src="../../assets/new.png"
-                alt=""
-                srcset=""
-              />
-              <router-link to="/newdetail"
-                >联合国秘书长：为妇女和女孩打造安全数字环境，向侵犯女性的网络用户与平台追责</router-link
-              >
-            </div>
-            <div class="main-news-article">
-              联合国新闻3月8日消息，在联合国大会8日为国际妇女节举行的庆祝活动上，联合国秘书长古特雷斯在致辞中提出三个方面的行动倡议。
-              古特雷斯首先提出，必须打破让妇女和女孩“掉线”的障碍。其中包括刻板印象阻碍女孩从小学习科学和数学，在数字技能方面的教育与培训处于低水平，以及难以获取数字设备、数据和就业机会。
-            </div>
-            <div class="main-news-title">
-              <img
-                class="title-icon-2"
-                src="../../assets/new.png"
-                alt=""
-                srcset=""
-              />
-              <router-link to="/newdetail"
-                >多品牌联合发起女性安全公益项目，推广三短一长求助眼语</router-link
-              >
-            </div>
-            <div class="main-news-article">
-              1月31日，国内顶尖创意热店上海天与空广告有限公司（下简称天与空）联合17家品牌和媒体，针对女性可能遇到的无法呼救的危险情况，在网络平台发起“求助眼语”公益项目，推广“三短一长”求助眼语，致力提高女性在特殊情况下成功求助的可能性，受到了社会各界的好评。
-            </div>
-            <div class="main-news-title">
-              <img
-                class="title-icon-2"
-                src="../../assets/new.png"
-                alt=""
-                srcset=""
-              />
-              <router-link to="/newdetail"
-                >2022年度女性新闻｜每一个事件中的“她”，都可能是“我们”</router-link
-              >
-            </div>
-            <div class="main-news-article">
-              我们关注女性新闻，并不只看见新闻中那一个“她”的困境与呼喊，更有强烈的代入感，如果是“我”，又当如何？
-              2022十大女性新闻事件，涉及妇女发展与制度保障、女性职业发展和生育支持、女性婚姻权益保障、女童和未成年人特殊保护、女性人身安全、社会性别意识等等领域。
-            </div>
-            <div class="main-news-title">
-              <img
-                class="title-icon-2"
-                src="../../assets/new.png"
-                alt=""
-                srcset=""
-              />
-              <router-link to="/newdetail"
-                >网约车女性出行报告发布，女性安全出行问题应得到持续关注</router-link
-              >
-            </div>
-            <div class="main-news-article">
-              中国妇女报全媒体记者韩亚聪 发自北京
-              46.99%在40岁以上、62.3%为高中及以上学历、65.06%每天睡眠时长小于7小时……5月8日，由中国城市公共交通协会指导，中国城市公共交通协会融媒体中心和网约车会主办的首届国际女性出行发展论坛在北京举办。论坛上发布了《迎光而行——女性出行行业报告》，勾勒出网约车司机群体中的女性画像，解读网约车女性乘客出行数据。
+            <div v-for="(item, index) in newsList" :key="index">
+              <div class="main-news-title">
+                <img
+                  class="title-icon-2"
+                  src="../../assets/new.png"
+                  alt=""
+                  srcset=""
+                />
+                <router-link to="/newdetail">{{ item.title }}</router-link>
+              </div>
+              <div class="main-news-article">
+                {{ item.content }}
+              </div>
             </div>
           </div>
           <!-- 分页按钮 -->
@@ -246,7 +201,7 @@
 import { defineComponent, ref, onMounted, reactive } from "vue";
 import HeadNav from "@/components/HeadNav";
 import Footer from "@/components/Footer";
-import { queryAdvise } from "@/api/index";
+import { queryAdvise, queryNews } from "@/api/index";
 import { ElCarousel, ElPagination } from "element-plus";
 
 export default defineComponent({
@@ -258,6 +213,7 @@ export default defineComponent({
     const liveAlone = reactive([]);
     const Outside = reactive([]);
     const Daily = reactive([]);
+    const newsList = reactive([]);
 
     // 在组件挂载后执行的操作
     onMounted(async () => {
@@ -288,6 +244,15 @@ export default defineComponent({
       for (let item of dataArr3) {
         Daily.push(item);
       }
+
+      // 发起新闻列表请求
+      const newsResult = await queryNews();
+      console.log(newsResult); 
+      // ref数据要.value
+      // newsList = newsResult.data.map(item => item);
+      for(let item of newsResult.data) {
+        newsList.push(item)
+      }
     });
 
     return {
@@ -295,6 +260,7 @@ export default defineComponent({
       liveAlone,
       Outside,
       Daily,
+      newsList,
     };
   },
 });
@@ -411,11 +377,9 @@ export default defineComponent({
         justify-content: center;
         align-items: center;
         margin-top: 20px;
-        :deep(
-            .el-pagination.is-background
-              .el-pager
-              li:not(.is-disabled).is-active
-          ) {
+        :deep(.el-pagination.is-background
+            .el-pager
+            li:not(.is-disabled).is-active) {
           color: #000;
           background-color: rgba(
             255,
