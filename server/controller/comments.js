@@ -17,7 +17,7 @@ module.exports = {
             return
         }
         // 给对应的推文添加评论数量
-        TweetsController.updateTweetComments(ctx, obj.tweet_id)
+        // TweetsController.updateTweetComments(ctx, obj.tweet_id)
         ctx.body = {
             message: '保存成功',
             status: 200

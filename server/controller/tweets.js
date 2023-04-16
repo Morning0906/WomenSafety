@@ -33,11 +33,11 @@ module.exports = {
         let obj = ctx.request.body;
         // token获取用户名
         obj.author = ctx.state.user.username;
-        // 处理picList参数
-        obj.picList = JSON.parse(obj.picList);
-        if (!Array.isArray(obj.picList)) {
-            obj.picList = [];
-        }
+        // // 处理picList参数
+        // obj.picList = JSON.parse(obj.picList);
+        // if (!Array.isArray(obj.picList)) {
+        //     obj.picList = [];
+        // }
         let result = await mongoose.createTweet(obj);
         if (!result) {
             ctx.body = {

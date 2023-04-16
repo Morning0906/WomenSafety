@@ -10,6 +10,7 @@
               class="publish-title-input"
               type="text"
               placeholder="请输入标题..."
+              v-model="tweetTit"
             />
           </div>
           <div class="publish-article">
@@ -20,9 +21,10 @@
               id=""
               cols="30"
               rows="10"
+              v-model="tweetCont"
             ></textarea>
           </div>
-          <div class="publish-button">发布讨论</div>
+          <div class="publish-button" @click="publishDiscuss">发布讨论</div>
         </div>
         <div class="news-box-title">最新讨论</div>
         <div class="news-box">
@@ -183,17 +185,30 @@
 import { defineComponent, ref } from "vue";
 import HeadNav from "@/components/HeadNav";
 import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 import Footer from "@/components/Footer.vue";
+import { createTweet } from "@/api/index";
 
 export default defineComponent({
   components: { HeadNav, Footer },
   setup() {
     // 路由
     const Router = useRouter();
+      // 状态管理
+    const Store = useStore();
     // 定义变量
-    const data = ref(
-      "可恶！！！就是语法问题，你个家伙，自己看我Test这个index.vue的写法！"
-    );
+    const data = ref("");
+    const tweetTit = ref("");
+    const tweetCont = ref("");
+    // 发布讨论
+    const publishDiscuss = async () => {
+      const result = await createTweet({
+        title: tweetTit.value,
+        content: tweetCont.value,
+        author: Store.state.user.username,
+      });
+      alert(result.message);
+    };
 
     const jump = () => {
       Router.push("/post");
@@ -202,6 +217,9 @@ export default defineComponent({
     return {
       data,
       jump,
+      publishDiscuss,
+      tweetTit,
+      tweetCont,
     };
   },
 });

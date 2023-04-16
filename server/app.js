@@ -19,9 +19,13 @@ const newsRouter = require('./routers/news');
 const adviseRouter = require('./routers/advise');
 const usersRouter = require('./routers/users');
 const tweetsRouter = require('./routers/tweets');
+const commodityRouter = require('./routers/commodity');
+const comentsyRouter = require('./routers/comments');
 newsRouter(app);
 adviseRouter(app);
 usersRouter(app);
 tweetsRouter(app);
+commodityRouter(app);
+comentsyRouter(app);
 
 app.listen(5200);

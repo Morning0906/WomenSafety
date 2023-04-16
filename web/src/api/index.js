@@ -35,3 +35,12 @@ export function queryTweets(data) {
         data,
     });
 }
+
+// 创建推文
+export function createTweet(data) {
+    return request({
+        url: `createTweet`,
+        method: "post",
+        data,
+    });
+}

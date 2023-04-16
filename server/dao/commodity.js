@@ -7,7 +7,7 @@ let CommoditySchema = new mongoose.Schema({
     picture: String,
     link: String,
     count: Number, // 商品数量
-    prices: Float64Array,  // 商品价格
+    prices: Number,  // 商品价格
     createAt: {
         type: Date,
         default: Date.now
