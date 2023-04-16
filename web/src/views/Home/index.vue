@@ -165,7 +165,13 @@
             />最新资讯
           </div>
           <div class="main-news">
-            <div v-for="(item, index) in newsList" :key="index">
+            <div
+              v-for="(item, index) in newsList.slice(
+                (currentPage - 1) * PageSize,
+                currentPage * PageSize
+              )"
+              :key="index"
+            >
               <div class="main-news-title">
                 <img
                   class="title-icon-2"
@@ -183,10 +189,13 @@
           <!-- 分页按钮 -->
           <div class="pigi-box">
             <el-pagination
+              @current-change="handleCurrentChange"
+              :v-model="currentPage.value"
+              :page-size="PageSize"
+              :total="totalCount"
               large
               background
               layout="prev, pager, next"
-              :total="50"
               class="mt-4"
             />
           </div>
@@ -214,6 +223,12 @@ export default defineComponent({
     const Outside = reactive([]);
     const Daily = reactive([]);
     const newsList = reactive([]);
+    // 默认显示第一页
+    const currentPage = ref("1");
+    // 总的数据条数
+    const totalCount = ref('0');
+    // 默认每页显示的条数（可修改）
+    let PageSize = 4;
 
     // 在组件挂载后执行的操作
     onMounted(async () => {
@@ -247,13 +262,20 @@ export default defineComponent({
 
       // 发起新闻列表请求
       const newsResult = await queryNews();
-      console.log(newsResult); 
+      console.log(newsResult);
+      totalCount.value = newsResult.data.length;
       // ref数据要.value
       // newsList = newsResult.data.map(item => item);
-      for(let item of newsResult.data) {
-        newsList.push(item)
+      for (let item of newsResult.data) {
+        newsList.push(item);
       }
     });
+
+    // 显示第几页
+    function handleCurrentChange(pageNumber) {
+      // 改变默认的页数
+      currentPage.value = pageNumber;
+    }
 
     return {
       data,
@@ -261,6 +283,10 @@ export default defineComponent({
       Outside,
       Daily,
       newsList,
+      currentPage,
+      totalCount,
+      PageSize,
+      handleCurrentChange,
     };
   },
 });

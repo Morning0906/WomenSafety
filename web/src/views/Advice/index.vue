@@ -11,12 +11,13 @@
           <div class="left-title">独居安全</div>
           <div class="left-one">
             <div class="item-list">
-              <div class="left-item">· 女士一个人住, 有哪些需要注意?</div>
-              <div class="left-item">· 我被标记了! 独居要警惕.</div>
-              <div class="left-item">· 这些都是需要知道的常识.</div>
-              <div class="left-item">· 一个人在外面, 一定要保护好自己.</div>
-              <div class="left-item">· 独居生活注意指北.</div>
-              <div class="left-item">· 在上海的独居生活. 指南篇!</div>
+              <div
+                class="left-item"
+                v-for="(item, index) in liveAlone"
+                :key="index"
+              >
+                <router-link to="/article">• {{ item.title }}</router-link>
+              </div>
             </div>
           </div>
         </div>
@@ -27,9 +28,13 @@
           <div class="left-title">出行安全</div>
           <div class="left-one">
             <div class="item-list">
-              <div class="left-item">· 出门必备的八大物品</div>
-              <div class="left-item">· 出门打车的注意事项——与司机友好沟通.</div>
-              <div class="left-item">· 如何与小区邻居处好关系, 提高安全性.</div>
+              <div
+                class="left-item"
+                v-for="(item, index) in Outside"
+                :key="index"
+              >
+                <router-link to="/article">• {{ item.title }}</router-link>
+              </div>
             </div>
           </div>
         </div>
@@ -40,9 +45,13 @@
           <div class="left-title">日常安全</div>
           <div class="left-one">
             <div class="item-list">
-              <div class="left-item">· 不要喝陌生人给你的水.</div>
-              <div class="left-item">· 独自在公共场合, 不喝离开过自己视线的水.</div>
-              <div class="left-item">· 坐电梯时, 尽量不要背对陌生人.</div>
+              <div
+                class="left-item"
+                v-for="(item, index) in Daily"
+                :key="index"
+              >
+                <router-link to="/article">• {{ item.title }}</router-link>
+              </div>
             </div>
           </div>
         </div>
@@ -53,9 +62,13 @@
           <div class="left-title">其他</div>
           <div class="left-one">
             <div class="item-list">
-              <div class="left-item">· 给紧急联系人电话设置快速拨号.</div>
-              <div class="left-item">· 外出住宿时, 尽量选择正规品牌酒店就住.</div>
-              <div class="left-item">· 睡前一定要反锁房门.</div>
+              <div
+                class="left-item"
+                v-for="(item, index) in Other"
+                :key="index"
+              >
+                <router-link to="/article">• {{ item.title }}</router-link>
+              </div>
             </div>
           </div>
         </div>
@@ -66,19 +79,66 @@
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, onMounted, reactive } from "vue";
 import HeadNav from "@/components/HeadNav";
 import Footer from "@/components/Footer.vue";
+import { queryAdvise } from "@/api/index";
 
 export default defineComponent({
   components: { HeadNav, Footer },
   setup() {
     // 定义变量
-    const data = ref(
-      "可恶！！！就是语法问题，你个家伙，自己看我Test这个index.vue的写法！"
-    );
+    const data = ref("");
+    const liveAlone = reactive([]);
+    const Outside = reactive([]);
+    const Daily = reactive([]);
+    const Other = reactive([]);
+
+    // 在组件挂载后执行的操作
+    onMounted(async () => {
+      // 发起请求
+      const result = await queryAdvise();
+      console.log(result);
+      // 过滤独居类(type == 1)的信息
+      let dataArr1 = result.data.filter((item) => {
+        return item.type === 1;
+      });
+      // 存储到显示变量liveAlone
+      for (let item of dataArr1) {
+        liveAlone.push(item);
+      }
+      // 过滤出行类(type == 2)的信息
+      let dataArr2 = result.data.filter((item) => {
+        return item.type === 2;
+      });
+      // 存储到显示变量Outside
+      for (let item of dataArr2) {
+        Outside.push(item);
+      }
+      // 过滤日常类(type == 3)的信息
+      let dataArr3 = result.data.filter((item) => {
+        return item.type === 3;
+      });
+      // 存储到显示变量Daily
+      for (let item of dataArr3) {
+        Daily.push(item);
+      }
+      // 过滤日常类(type == 3)的信息
+      let dataArr4 = result.data.filter((item) => {
+        return item.type === 4;
+      });
+      // 存储到显示变量Daily
+      for (let item of dataArr4) {
+        Other.push(item);
+      }
+    });
+
     return {
       data,
+      liveAlone,
+      Outside,
+      Daily,
+      Other,
     };
   },
 });
@@ -134,25 +194,24 @@ export default defineComponent({
       box-shadow: 5px 5px 5px #eee;
       padding: 20px;
       box-sizing: border-box;
-      .item-list{
+      .item-list {
         height: 120px;
         overflow-y: scroll;
-        
       }
       // 滚动条样式
-    .item-list::-webkit-scrollbar {
-      width: 4px;
-    }
-    .item-list::-webkit-scrollbar-thumb {
-      border-radius: 10px;
-      // background: rgba(0, 0, 0, 0.2);
-      background: transparent;
-    }
-    .item-list::-webkit-scrollbar-track {
-      border-radius: 0;
-      // background: rgba(0, 0, 0, 0.1);
-      background: transparent;
-    }
+      .item-list::-webkit-scrollbar {
+        width: 4px;
+      }
+      .item-list::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        // background: rgba(0, 0, 0, 0.2);
+        background: transparent;
+      }
+      .item-list::-webkit-scrollbar-track {
+        border-radius: 0;
+        // background: rgba(0, 0, 0, 0.1);
+        background: transparent;
+      }
       .top-icon {
         text-align: left;
         img {
