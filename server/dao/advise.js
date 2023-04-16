@@ -3,7 +3,7 @@ const { conn } = require('../utils/mongoConnect')
 
 let AdviseSchema = new mongoose.Schema({
     title: String,
-    type: Number,   // 1-独居类  2-出行类  3-日常类
+    type: Number,   // 1-独居类  2-出行类  3-日常类 4-其他
     author: String,
     content: String,
     picture: String,  
