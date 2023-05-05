@@ -8,59 +8,10 @@
         </div>
         <div class="article-container">
           <div class="cr-box">
-            <div class="cr-name">@中国妇女报</div>
+            <div class="cr-name">@{{ item.author }}</div>
             <div class="time-box">2023-01-02 06:46</div>
           </div>
-          <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.习近平总书记致信祝贺中国儿童中心成立40周年，对妇女儿童工作特别是校外教育工作提出殷切希望
-          </p>
-          <br />
-          <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在中国儿童中心成立40周年之际，习近平总书记发来贺信强调，40年来，中国儿童中心坚守为党育人、为国育才初心使命，落实立德树人根本任务，服务广大儿童，为培养社会主义事业建设者和接班人作出了积极贡献。希望你们发扬光荣传统，团结广大儿童工作者，做儿童成长的引路人、儿童权益的守护人、儿童未来的筑梦人，用心用情促进儿童健康成长、全面发展。习近平总书记的贺信为新时代儿童工作和儿童事业发展指明了前进方向、提供了根本遵循，对妇女儿童工作特别是校外教育工作提出了殷切希望。
-          </p>
-          <br />
-          <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.党的二十大报告提出坚持男女平等基本国策，保障妇女儿童合法权益
-          </p>
-          <br />
-          <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;党的二十大报告明确提出，坚持男女平等基本国策，保障妇女儿童合法权益；重视女干部培养选拔工作，发挥女干部重要作用；深化工会、共青团、妇联等群团组织改革和建设，有效发挥桥梁纽带作用。
-          </p>
-          <br />
-          <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.30年后迎来“大修”
-            新修订的妇女权益保障法审议通过
-          </p>
-          <br />
-          <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10月30日，十三届全国人大常委会第三十七次会议审议通过新修订的《中华人民共和国妇女权益保障法》，2023年1月1日正式施行。这是该法实施30年的又一次“大修”，新法由过去的九章六十一条扩大至十章八十六条，积极适应新时代、新任务、新要求，对妇女权益保障制度机制作出更加全面系统的规定。
-          </p>
-          <br />
-          <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.北京冬奥会女性参赛比例创历届之最
-          </p>
-          <br />
-          <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2022年北京冬奥会共2892名运动员参赛，其中1314名是女性，女性运动员参赛比例为45.44%，女性参赛比例创历届之最。北京冬奥会共设置109个小项，女性运动员参加46个小项，新增7个小项，其中单人雪车项目为首次设立，而且只设女子项目。
-          </p>
-          <br />
-          <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.女性科技人力资源增长迅速
-            性别比例更趋均衡
-          </p>
-          <br />
-          <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6月25日，中国科协创新战略研究院发布《中国科技人力资源发展研究报告（2020）》。报告显示，截至2020年底，我国科技人力资源总量为11234.1万人，继续居世界首位。其中，女性科技人力资源增长迅速，占总量比例从2005年的约三分之一提高到2019年的40.1%，性别比例更加趋于均衡。关注女科学家在科技领域的创新和发展，也逐步成为社会共识。
-          </p>
-          <br />
-          <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.中国女足时隔16年重回亚洲之巅
-          </p>
-          <br />
-          <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2月6日，中国女足在2022年女足亚洲杯决赛中击败韩国队，第九次夺得亚洲杯冠军，时隔16年再次站上亚洲之巅。中国女足本届亚洲杯历程堪称完美，在小组赛阶段共打进11个球且零封对手，而后的四分之一决赛、半决赛和决赛又连续上演逆转好戏。中国女足守门员朱钰获得“金手套奖”，前锋王珊珊荣膺“最佳球员”。
-          </p>
-          <br />
+          <pre>{{ item.content }}</pre>
         </div>
       </div>
       <div class="right-container">
@@ -157,10 +108,16 @@ export default defineComponent({
     const data = ref(``);
     const item = ref(``);
     const Router = useRouter();
+    const pageQuery = ref("");
+    pageQuery.value = JSON.parse(Router.currentRoute.value.query.detail);
+    item.value = pageQuery.value;
+
+    const item = ref(``);
+    const Router = useRouter();
     const pageQuery = ref('');
     pageQuery.value = JSON.parse(Router.currentRoute.value.query.detail)
     item.value = pageQuery.value;
-
+    
     return {
       data,
       item,
@@ -220,6 +177,11 @@ export default defineComponent({
       border-radius: 12px;
       overflow-y: scroll;
       text-align: left;
+      white-space: pre-warp;
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
       .cr-box {
         display: flex;
         justify-content: center;

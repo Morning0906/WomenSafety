@@ -55,93 +55,17 @@
           />女性安全好物推荐
         </div>
         <div class="left-one">
-          <div class="left-item">
+          <div
+            class="left-item"
+            v-for="(item, index) in commodityList"
+            :key="index"
+          >
             <div class="product-image">
-              <img
-                src="https://img10.360buyimg.com/n1/jfs/t1/95619/39/32470/83274/638f209eEec0f650e/a2e696723c576a0b.jpg"
-                alt=""
-                width="60px"
-                height="60px"
-              />
+              <img :src="item.picture" alt="" width="60px" height="60px" />
             </div>
-            <div class="content">阻门器顶门器女性出差旅行家用便携门阻</div>
-          </div>
-          <div class="left-item">
-            <div class="product-image">
-              <img
-                src="https://img14.360buyimg.com/n1/jfs/t1/208644/29/1878/77849/614d6596E5df3f4f6/c9fa57360a3ee6c8.jpg.avif"
-                alt=""
-                width="60px"
-                height="60px"
-              />
+            <div class="content">
+              <a target="_blank" :href="item.link">{{ item.name }}</a>
             </div>
-            <div class="content">安全锁独居女生免打孔好物单身公寓</div>
-          </div>
-          <div class="left-item">
-            <div class="product-image">
-              <img
-                src="https://img13.360buyimg.com/n1/jfs/t1/168194/25/28296/60578/63297631E78b2153c/0a1fe64959df41cc.jpg.avif"
-                alt=""
-                width="60px"
-                height="60px"
-              />
-            </div>
-            <div class="content">防狼雾剂防身女子防护神器防卫</div>
-          </div>
-          <div class="left-item">
-            <div class="product-image">
-              <img
-                src="https://img14.360buyimg.com/n0/jfs/t1/214457/10/27181/88176/642143e0F19f2e0ad/8567f2db28f0985d.jpg.avif"
-                alt=""
-                width="60px"
-                height="60px"
-              />
-            </div>
-            <div class="content">门磁报警器门窗防盗报警器家用</div>
-          </div>
-          <div class="left-item">
-            <div class="product-image">
-              <img
-                src="https://img12.360buyimg.com/n1/jfs/t1/136241/39/21596/33150/61f1f9abEa00870f4/a2f52df7ce31f700.jpg.avif"
-                alt=""
-                width="60px"
-                height="60px"
-              />
-            </div>
-            <div class="content">安全锁独居女生免打孔好物单身公寓</div>
-          </div>
-          <div class="left-item">
-            <div class="product-image">
-              <img
-                src="https://img14.360buyimg.com/n1/jfs/t1/198907/34/16495/184530/6189d862E9b845b8d/af9078e2785b86be.jpg.avif"
-                alt=""
-                width="60px"
-                height="60px"
-              />
-            </div>
-            <div class="content">快递单信息消除器隐私笔涂抹地址防泄密</div>
-          </div>
-          <div class="left-item">
-            <div class="product-image">
-              <img
-                src="https://img12.360buyimg.com/n1/jfs/t1/212723/10/23733/34380/638052f7Ec4571a8d/4a8527d8ddf07c61.jpg.avif"
-                alt=""
-                width="60px"
-                height="60px"
-              />
-            </div>
-            <div class="content">独居女生免打孔好物单身公寓安全锁</div>
-          </div>
-          <div class="left-item">
-            <div class="product-image">
-              <img
-                src="https://img14.360buyimg.com/n1/jfs/t1/81889/32/20343/64080/62b023f5Efa3dae80/bc597e7d060c9a1f.jpg.avif"
-                alt=""
-                width="60px"
-                height="60px"
-              />
-            </div>
-            <div class="content">房门安全锁神器房间反锁门独居女生防盗</div>
           </div>
         </div>
       </div>
@@ -151,12 +75,13 @@
 </template>
 
 <script>
-import { defineComponent, onMounted, reactive, ref } from "vue";
+import { defineComponent, ref, onMounted, reactive } from "vue";
 import HeadNav from "@/components/HeadNav";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import Footer from "@/components/Footer.vue";
-import { queryTweets, createTweet } from "@/api/index";
+import { queryTweets, createTweet, queryCommodities } from "@/api/index";
+
 
 export default defineComponent({
   components: { HeadNav, Footer },
@@ -169,6 +94,9 @@ export default defineComponent({
     const data = ref("");
     const tweetTit = ref("");
     const tweetCont = ref("");
+
+    const commodityList = reactive([]);
+
     let dataTitleArr = reactive([]);
 
     // 在组件挂载后执行的操作
@@ -215,12 +143,23 @@ export default defineComponent({
       Router.push({ path: "post", query: { detail: JSON.stringify(item) } });
     };
 
+    // 发起新闻列表请求
+    onMounted(async () => {
+      const commodityResult = await queryCommodities();
+      console.log(commodityResult);
+      // ref数据要.value
+      for (let item of commodityResult.data) {
+        commodityList.push(item);
+      }
+    });
+
     return {
       data,
       jump,
       publishDiscuss,
       tweetTit,
       tweetCont,
+      commodityList,
       updateTweet,
       dataTitleArr,
     };
@@ -342,6 +281,8 @@ export default defineComponent({
         border-radius: 8px;
         padding-right: 10px;
         img {
+          height: 60px;
+          width: 60px;
           border-radius: 8px;
         }
       }
