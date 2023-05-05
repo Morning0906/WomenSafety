@@ -142,20 +142,28 @@
 import { defineComponent, ref } from "vue";
 import HeadNav from "@/components/HeadNav";
 import Footer from "@/components/Footer";
+import { useRouter } from "vue-router";
 
 export default defineComponent({
   components: { HeadNav, Footer },
-  props: {
-    item: {
-      type: Object,
-      required: true
-    }
-  },
+  // props: {
+  //   item: {
+  //     type: Object,
+  //     required: true,
+  //   },
+  // },
   setup() {
     // 定义变量
     const data = ref(``);
+    const item = ref(``);
+    const Router = useRouter();
+    const pageQuery = ref('');
+    pageQuery.value = JSON.parse(Router.currentRoute.value.query.detail)
+    item.value = pageQuery.value;
+
     return {
-      data
+      data,
+      item,
     };
   },
 });
