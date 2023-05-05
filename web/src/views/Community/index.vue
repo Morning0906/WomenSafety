@@ -29,49 +29,18 @@
         <div class="news-box-title">最新讨论</div>
         <div class="news-box">
           <div class="main-news">
-            <div class="news-item" @click="jump">
+            <div
+              class="news-item"
+              @click="jump(item)"
+              v-for="(item, index) in dataTitleArr"
+            >
               <img
                 class="news-icon"
                 src="../../assets/post.png"
                 alt=""
                 srcset=""
               />
-              女生一个人出门旅行，有哪些值得注意的安全问题？有什么女性出行安全经验分享？
-            </div>
-            <div class="news-item">
-              <img
-                class="news-icon"
-                src="../../assets/post.png"
-                alt=""
-                srcset=""
-              />
-              外出住宿时, 对酒店需要进行哪些检查?
-            </div>
-            <div class="news-item">
-              <img
-                class="news-icon"
-                src="../../assets/post.png"
-                alt=""
-                srcset=""
-              />
-              女性在家中穿着得体的情况下，夜晚能拉开窗帘吗？（家里还有其它人）？
-            </div>
-            <div class="news-item">
-              <img
-                class="news-icon"
-                src="../../assets/post.png"
-                alt=""
-                srcset=""
-              />独自在公共场合, 有什么需要注意的安全问题吗?
-            </div>
-            <div class="news-item">
-              <img
-                class="news-icon"
-                src="../../assets/post.png"
-                alt=""
-                srcset=""
-              />
-              卧室里的烟雾报警器有红灯一闪一闪的，是摄像头吗？可以遮挡住吗？
+              {{ item }}
             </div>
           </div>
         </div>
@@ -182,36 +151,68 @@
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
+import { defineComponent, onMounted, reactive, ref } from "vue";
 import HeadNav from "@/components/HeadNav";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import Footer from "@/components/Footer.vue";
-import { createTweet } from "@/api/index";
+import { queryTweets, createTweet } from "@/api/index";
 
 export default defineComponent({
   components: { HeadNav, Footer },
   setup() {
     // 路由
     const Router = useRouter();
-      // 状态管理
+    // 状态管理
     const Store = useStore();
     // 定义变量
     const data = ref("");
     const tweetTit = ref("");
     const tweetCont = ref("");
+    let dataTitleArr = reactive([]);
+
+    // 在组件挂载后执行的操作
+    onMounted(async () => {
+      // 发起请求
+      await updateTweet();
+    });
+
+    // 发布讨论
+    const updateTweet = async () => {
+      const result = await queryTweets();
+      let dataTitle = result.data.reverse().slice(0, 5).map((item) => {
+        return item.title;
+      });
+      while(dataTitleArr.length) {
+        dataTitleArr.pop();
+      }
+      for (let item of dataTitle) {
+        dataTitleArr.push(item);
+      }
+    };
+
     // 发布讨论
     const publishDiscuss = async () => {
+      if (!tweetTit.value) {
+        alert("请输入推文标题");
+        return;
+      }
+      if (!tweetCont.value) {
+        alert("请输入推文内容");
+        return;
+      }
       const result = await createTweet({
         title: tweetTit.value,
         content: tweetCont.value,
         author: Store.state.user.username,
       });
       alert(result.message);
+      // 更新最新推文
+      await updateTweet();
     };
 
-    const jump = () => {
-      Router.push("/post");
+    const jump = (item) => {
+      Router.push({ path: "post", query: { detail: JSON.stringify(item) } });
     };
 
     return {
@@ -220,6 +221,8 @@ export default defineComponent({
       publishDiscuss,
       tweetTit,
       tweetCont,
+      updateTweet,
+      dataTitleArr,
     };
   },
 });
