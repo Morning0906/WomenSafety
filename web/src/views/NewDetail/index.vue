@@ -4,7 +4,7 @@
     <div class="main-container">
       <div class="left-container">
         <div class="left-title">
-          2022年度女性新闻｜每一个事件中的“她”，都可能是“我们”
+          {{ item.title }}
         </div>
         <div class="article-container">
           <div class="cr-box">
@@ -145,11 +145,17 @@ import Footer from "@/components/Footer";
 
 export default defineComponent({
   components: { HeadNav, Footer },
+  props: {
+    item: {
+      type: Object,
+      required: true
+    }
+  },
   setup() {
     // 定义变量
     const data = ref(``);
     return {
-      data,
+      data
     };
   },
 });

@@ -179,7 +179,7 @@
                   alt=""
                   srcset=""
                 />
-                <router-link to="/newdetail">{{ item.title }}</router-link>
+                <router-link :to="{ name: 'NewDetail', params: { item: item } }">{{ item.title }}</router-link>
               </div>
               <div class="main-news-article">
                 {{ item.content }}
@@ -226,7 +226,7 @@ export default defineComponent({
     // 默认显示第一页
     const currentPage = ref("1");
     // 总的数据条数
-    const totalCount = ref('0');
+    const totalCount = ref("0");
     // 默认每页显示的条数（可修改）
     let PageSize = 4;
 
@@ -396,6 +396,11 @@ export default defineComponent({
           margin-top: 10px;
           font-size: 14px;
           text-align: left;
+          display: -webkit-box; /* 将文本设置为弹性容器 */
+          -webkit-box-orient: vertical; /* 垂直方向 */
+          -webkit-line-clamp: 4; /* 设置最大行数 */
+          overflow: hidden; /* 当文本超出2行时，隐藏溢出部分 */
+          text-overflow: ellipsis; /* 在行末显示省略号 */
         }
       }
       .pigi-box {

@@ -95,6 +95,7 @@ const routes = [
         meta: {
             requiresAuth: false,
         },
+        props: true
     },
 ]
 
