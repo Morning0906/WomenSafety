@@ -40,7 +40,7 @@
                 alt=""
                 srcset=""
               />
-              {{ item }}
+              {{ item.title }}
             </div>
           </div>
         </div>
@@ -108,9 +108,7 @@ export default defineComponent({
     // 发布讨论
     const updateTweet = async () => {
       const result = await queryTweets();
-      let dataTitle = result.data.reverse().slice(0, 5).map((item) => {
-        return item.title;
-      });
+      let dataTitle = result.data.reverse().slice(0, 5);
       while(dataTitleArr.length) {
         dataTitleArr.pop();
       }

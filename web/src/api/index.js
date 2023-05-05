@@ -44,3 +44,22 @@ export function createTweet(data) {
         data,
     });
 }
+
+// 查询全部评论
+export function queryCommentsByTweetId(data) {
+    return request({
+        url: `queryCommentsByTweetId`,
+        method: "post",
+        data,
+    });
+}
+
+// 发布评论
+export function createComments(data) {
+    return request({
+        url: `createComments`,
+        method: "post",
+        data,
+    });
+}
+

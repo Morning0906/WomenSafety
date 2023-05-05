@@ -3,15 +3,13 @@
     <HeadNav />
     <div class="main-container">
       <div class="left-container">
-        <div class="left-title">女生独自坐长途卧铺火车怎样比较安全？</div>
+        <div class="left-title">{{ item.title }}</div>
         <div class="left-title2">
-          <div class="author-box">@momo</div>
-          <div class="time-box">2023-04-26 19:44</div>
+          <div class="author-box">@{{ item.author }}</div>
+          <div class="time-box">{{ item.createAt }}</div>
         </div>
         <div class="article-container">
-          下周的火车票，在网上有看到很多说不安全的，要怎么才能安全度过全程。
-          我买的是要过夜的那种，全程要十几个小时吧。确实有点担心，之前都是坐的动车呜呜呜。
-          这次第一次坐火车，而且还是一个人。求友友们提供一点建议！
+          {{ item.content }}
         </div>
         <!-- 发布评论 -->
         <div class="publish-box">
@@ -25,38 +23,16 @@
               size="large"
             ></el-input>
           </div>
-          <div class="publish-button" @click="publishComment()">发布评论</div>
+          <div class="publish-button" @click="publishComment(item)">
+            发布评论
+          </div>
         </div>
         <div class="comment-title">全部评论</div>
         <div class="comment-container">
-          <div class="comment-item">
-            <div class="comment-author">Morning早早：</div>
+          <div class="comment-item" v-for="(item, index) in commentArr">
+            <div class="comment-author">{{ item.author }}：</div>
             <div class="comment-content">
-              安全性排名：硬卧上铺>硬卧中铺>硬卧下铺>软卧>高软。
-            </div>
-          </div>
-          <div class="comment-item">
-            <div class="comment-author">散步的牛油果：</div>
-            <div class="comment-content">
-              穿方便穿脱的鞋子，别穿太贵的鞋子，可能会丢。
-            </div>
-          </div>
-          <div class="comment-item">
-            <div class="comment-author">葡萄you：</div>
-            <div class="comment-content">
-              我个人是戴口罩 装得很凶或者有什么传染疾病的那种
-            </div>
-          </div>
-          <div class="comment-item">
-            <div class="comment-author">suhdvi：</div>
-            <div class="comment-content">
-              出现任何问题，立刻找你这节车厢的列车员，就赖上他了。（我爸是铁路系统的）
-            </div>
-          </div>
-          <div class="comment-item">
-            <div class="comment-author">蓝色空间：</div>
-            <div class="comment-content">
-              把东西放在靠窗的一边，不要放脚边！
+              {{ item.content }}
             </div>
           </div>
         </div>
@@ -80,7 +56,7 @@
                 alt=""
                 srcset=""
               />
-               女性在家中时，夜晚能拉开窗帘吗？
+              女性在家中时，夜晚能拉开窗帘吗？
             </div>
             <div class="right-item">
               <img
@@ -89,7 +65,7 @@
                 alt=""
                 srcset=""
               />
-               有什么女性出行安全经验分享？
+              有什么女性出行安全经验分享？
             </div>
             <div class="right-item">
               <img
@@ -97,7 +73,8 @@
                 src="../../assets/discuss.png"
                 alt=""
                 srcset=""
-              /> 出去住的酒店插孔里如何鉴别摄像头
+              />
+              出去住的酒店插孔里如何鉴别摄像头
             </div>
             <div class="right-item">
               <img
@@ -105,7 +82,8 @@
                 src="../../assets/discuss.png"
                 alt=""
                 srcset=""
-              /> 遭遇家暴时, 应该怎么办
+              />
+              遭遇家暴时, 应该怎么办
             </div>
             <div class="right-item">
               <img
@@ -113,7 +91,8 @@
                 src="../../assets/discuss.png"
                 alt=""
                 srcset=""
-              /> 卧室烟雾报警器一闪一闪的是不是摄像头
+              />
+              卧室烟雾报警器一闪一闪的是不是摄像头
             </div>
             <div class="right-item">
               <img
@@ -121,7 +100,8 @@
                 src="../../assets/discuss.png"
                 alt=""
                 srcset=""
-              /> 昨晚感觉自己被尾随了
+              />
+              昨晚感觉自己被尾随了
             </div>
             <div class="right-item">
               <img
@@ -129,7 +109,8 @@
                 src="../../assets/discuss.png"
                 alt=""
                 srcset=""
-              /> 女性在职场酒局中需要注意的安全问题
+              />
+              女性在职场酒局中需要注意的安全问题
             </div>
             <div class="right-item">
               <img
@@ -137,7 +118,8 @@
                 src="../../assets/discuss.png"
                 alt=""
                 srcset=""
-              /> 上海有没有安全干净的酒店推荐
+              />
+              上海有没有安全干净的酒店推荐
             </div>
           </div>
         </div>
@@ -151,22 +133,68 @@
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, reactive, onMounted } from "vue";
 import HeadNav from "@/components/HeadNav";
 import Footer from "@/components/Footer.vue";
 import { ElInput } from "element-plus";
+import { useRouter } from "vue-router";
+import { queryCommentsByTweetId, createComments } from "@/api/index";
+import { useStore } from "vuex";
 
 export default defineComponent({
   components: { HeadNav, ElInput, Footer },
   setup() {
     // 定义变量
     const inputValue = ref("");
-    const publishComment = () => {
-      //发布评论
+    const item = ref(``);
+    const Router = useRouter();
+    const pageQuery = ref("");
+    const commentArr = reactive([]);
+    const Store = useStore();
+
+    pageQuery.value = JSON.parse(Router.currentRoute.value.query.detail);
+    item.value = pageQuery.value;
+
+    // 在组件挂载后执行的操作
+    onMounted(async () => {
+      // 发起请求
+      await initComment();
+    });
+
+    const initComment = async () => {
+      const result = await queryCommentsByTweetId({
+        tweet_id: item.value._id,
+      });
+      console.log(result);
+      let arr = result.data.reverse().slice(0, 5);
+      while (commentArr.length) {
+        commentArr.pop();
+      }
+      for (let item of arr) {
+        commentArr.push(item);
+      }
     };
+
+    const publishComment = async (item) => {
+      if (!inputValue.value) {
+        alert("请输入评论内容");
+        return;
+      }
+      //发布评论
+      const result = await createComments({
+        tweet_id: item._id,
+        author: Store.state.user.username,
+        content: inputValue.value,
+      });
+      alert(result.message);
+      await initComment();
+    };
+
     return {
       inputValue,
       publishComment,
+      item,
+      commentArr,
     };
   },
 });

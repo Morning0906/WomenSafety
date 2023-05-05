@@ -111,12 +111,6 @@ export default defineComponent({
     const pageQuery = ref("");
     pageQuery.value = JSON.parse(Router.currentRoute.value.query.detail);
     item.value = pageQuery.value;
-
-    const item = ref(``);
-    const Router = useRouter();
-    const pageQuery = ref('');
-    pageQuery.value = JSON.parse(Router.currentRoute.value.query.detail)
-    item.value = pageQuery.value;
     
     return {
       data,
