@@ -179,7 +179,7 @@
                   alt=""
                   srcset=""
                 />
-                <router-link :to="{ name: 'NewDetail', params: { item: item } }">{{ item.title }}</router-link>
+                <div @click="jumpEvent(item)">{{ item.title }}</div>
               </div>
               <div class="main-news-article">
                 {{ item.content }}
@@ -210,6 +210,7 @@
 import { defineComponent, ref, onMounted, reactive } from "vue";
 import HeadNav from "@/components/HeadNav";
 import Footer from "@/components/Footer";
+import { useRouter } from "vue-router";
 import { queryAdvise, queryNews } from "@/api/index";
 import { ElCarousel, ElPagination } from "element-plus";
 
@@ -217,6 +218,7 @@ export default defineComponent({
   components: { HeadNav, Footer, ElCarousel, ElPagination },
   setup() {
     // 定义变量
+    const Router = useRouter();
     const data = ref("");
     const swiperRef = ref(null);
     const liveAlone = reactive([]);
@@ -277,6 +279,10 @@ export default defineComponent({
       currentPage.value = pageNumber;
     }
 
+    const jumpEvent = (item) => {
+      Router.push({ path: "NewDetail", query: { detail: JSON.stringify(item) } });
+    };
+
     return {
       data,
       liveAlone,
@@ -287,6 +293,7 @@ export default defineComponent({
       totalCount,
       PageSize,
       handleCurrentChange,
+      jumpEvent,
     };
   },
 });
@@ -408,9 +415,11 @@ export default defineComponent({
         justify-content: center;
         align-items: center;
         margin-top: 20px;
-        :deep(.el-pagination.is-background
-            .el-pager
-            li:not(.is-disabled).is-active) {
+        :deep(
+            .el-pagination.is-background
+              .el-pager
+              li:not(.is-disabled).is-active
+          ) {
           color: #000;
           background-color: rgba(
             255,

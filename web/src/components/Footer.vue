@@ -3,7 +3,7 @@
   <div class="footer">
     <div class="author">
       <span class="before-desc">Created by </span>
-      <a class="name" href="https://github.com/Morning0906">@Morning</a>
+      <a class="name" href="#">@Morning</a>
     </div>
     <div class="tag-desc">Women | Life | Future</div>
   </div>
