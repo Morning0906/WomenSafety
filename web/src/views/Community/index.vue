@@ -33,6 +33,7 @@
               class="news-item"
               @click="jump(item)"
               v-for="(item, index) in dataTitleArr"
+              :key="index"
             >
               <img
                 class="news-icon"
@@ -82,7 +83,6 @@ import { useStore } from "vuex";
 import Footer from "@/components/Footer.vue";
 import { queryTweets, createTweet, queryCommodities } from "@/api/index";
 
-
 export default defineComponent({
   components: { HeadNav, Footer },
   setup() {
@@ -109,7 +109,7 @@ export default defineComponent({
     const updateTweet = async () => {
       const result = await queryTweets();
       let dataTitle = result.data.reverse().slice(0, 5);
-      while(dataTitleArr.length) {
+      while (dataTitleArr.length) {
         dataTitleArr.pop();
       }
       for (let item of dataTitle) {
@@ -135,6 +135,9 @@ export default defineComponent({
       alert(result.message);
       // 更新最新推文
       await updateTweet();
+      // 清空输入内容
+      tweetTit.value = "";
+      tweetCont.value = "";
     };
 
     const jump = (item) => {
@@ -336,6 +339,7 @@ export default defineComponent({
         background-color: #c8a78d;
         color: #fff;
         font-weight: bold;
+        cursor: pointer;
       }
     }
     .news-box-title {
@@ -368,6 +372,7 @@ export default defineComponent({
           padding-top: 20px;
           margin-left: 20px;
           margin-right: 20px;
+          cursor: pointer;
           &:not(:last-child) {
             border-bottom: 0.5px solid #eeeeee;
           }

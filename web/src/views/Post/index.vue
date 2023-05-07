@@ -29,7 +29,7 @@
         </div>
         <div class="comment-title">全部评论</div>
         <div class="comment-container">
-          <div class="comment-item" v-for="(item, index) in commentArr">
+          <div class="comment-item" v-for="(item, index) in commentArr" :key="index">
             <div class="comment-author">{{ item.author }}：</div>
             <div class="comment-content">
               {{ item.content }}
@@ -342,6 +342,7 @@ export default defineComponent({
         margin-top: 10px;
         background-color: #c8a78d;
         color: #fff;
+        cursor: pointer;
       }
     }
 
@@ -393,6 +394,7 @@ export default defineComponent({
           text-align: left;
           display: flex;
           align-items: center;
+          cursor: pointer;
         }
       }
     }
