@@ -49,77 +49,14 @@
         </div>
         <div class="right-one">
           <div class="item-container-one">
-            <div class="right-item">
+            <div class="right-item" v-for="(item, index) in dataTitleArr">
               <img
                 class="title-icon-2"
                 src="../../assets/discuss.png"
                 alt=""
                 srcset=""
               />
-              女性在家中时，夜晚能拉开窗帘吗？
-            </div>
-            <div class="right-item">
-              <img
-                class="title-icon-2"
-                src="../../assets/discuss.png"
-                alt=""
-                srcset=""
-              />
-              有什么女性出行安全经验分享？
-            </div>
-            <div class="right-item">
-              <img
-                class="title-icon-2"
-                src="../../assets/discuss.png"
-                alt=""
-                srcset=""
-              />
-              出去住的酒店插孔里如何鉴别摄像头
-            </div>
-            <div class="right-item">
-              <img
-                class="title-icon-2"
-                src="../../assets/discuss.png"
-                alt=""
-                srcset=""
-              />
-              遭遇家暴时, 应该怎么办
-            </div>
-            <div class="right-item">
-              <img
-                class="title-icon-2"
-                src="../../assets/discuss.png"
-                alt=""
-                srcset=""
-              />
-              卧室烟雾报警器一闪一闪的是不是摄像头
-            </div>
-            <div class="right-item">
-              <img
-                class="title-icon-2"
-                src="../../assets/discuss.png"
-                alt=""
-                srcset=""
-              />
-              昨晚感觉自己被尾随了
-            </div>
-            <div class="right-item">
-              <img
-                class="title-icon-2"
-                src="../../assets/discuss.png"
-                alt=""
-                srcset=""
-              />
-              女性在职场酒局中需要注意的安全问题
-            </div>
-            <div class="right-item">
-              <img
-                class="title-icon-2"
-                src="../../assets/discuss.png"
-                alt=""
-                srcset=""
-              />
-              上海有没有安全干净的酒店推荐
+              {{ item.title }}
             </div>
           </div>
         </div>
@@ -138,7 +75,7 @@ import HeadNav from "@/components/HeadNav";
 import Footer from "@/components/Footer.vue";
 import { ElInput } from "element-plus";
 import { useRouter } from "vue-router";
-import { queryCommentsByTweetId, createComments } from "@/api/index";
+import { queryTweets, queryCommentsByTweetId, createComments } from "@/api/index";
 import { useStore } from "vuex";
 
 export default defineComponent({
@@ -151,6 +88,7 @@ export default defineComponent({
     const pageQuery = ref("");
     const commentArr = reactive([]);
     const Store = useStore();
+    let dataTitleArr = reactive([]);
 
     pageQuery.value = JSON.parse(Router.currentRoute.value.query.detail);
     item.value = pageQuery.value;
@@ -159,7 +97,20 @@ export default defineComponent({
     onMounted(async () => {
       // 发起请求
       await initComment();
+      await moreTweet();
     });
+
+    // 更多讨论
+    const moreTweet = async () => {
+      const result = await queryTweets();
+      let dataTitle = result.data.reverse().slice(0, 7);
+      while (dataTitleArr.length) {
+        dataTitleArr.pop();
+      }
+      for (let item of dataTitle) {
+        dataTitleArr.push(item);
+      }
+    };
 
     const initComment = async () => {
       const result = await queryCommentsByTweetId({
@@ -194,6 +145,7 @@ export default defineComponent({
       publishComment,
       item,
       commentArr,
+      dataTitleArr,
     };
   },
 });

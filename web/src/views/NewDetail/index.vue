@@ -25,58 +25,14 @@
         </div>
         <div class="right-one">
           <div class="item-container-one">
-            <div class="right-item">
+            <div class="right-item" v-for="(item, index) in dataTitleArr">
               <img
                 class="news-icon"
                 src="../../assets/article.png"
                 alt=""
                 srcset=""
               />
-              联合国秘书长：为妇女和女孩打造安全数字环境，向侵犯女性的网络用户与平台追责
-            </div>
-            <div class="right-item">
-              <img
-                class="news-icon"
-                src="../../assets/article.png"
-                alt=""
-                srcset=""
-              />多品牌联合发起女性安全公益项目，推广三短一长求助眼语
-            </div>
-            <div class="right-item">
-              <img
-                class="news-icon"
-                src="../../assets/article.png"
-                alt=""
-                srcset=""
-              />
-              网约车女性出行报告发布，女性安全出行问题应得到持续关注
-            </div>
-            <div class="right-item">
-              <img
-                class="news-icon"
-                src="../../assets/article.png"
-                alt=""
-                srcset=""
-              />
-              T3出行推多项举措,保障女性深夜出行安全
-            </div>
-            <div class="right-item">
-              <img
-                class="news-icon"
-                src="../../assets/article.png"
-                alt=""
-                srcset=""
-              />
-              滴滴顺风车推出女性专属保护计划,就安全产品征求公众意见
-            </div>
-            <div class="right-item">
-              <img
-                class="news-icon"
-                src="../../assets/article.png"
-                alt=""
-                srcset=""
-              />
-              《民法典》对婚内女性权利的保护
+              {{ item.title }}
             </div>
           </div>
         </div>
@@ -90,10 +46,11 @@
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, reactive, onMounted } from "vue";
 import HeadNav from "@/components/HeadNav";
 import Footer from "@/components/Footer";
 import { useRouter } from "vue-router";
+import { queryAdvise } from "@/api/index";
 
 export default defineComponent({
   components: { HeadNav, Footer },
@@ -109,12 +66,32 @@ export default defineComponent({
     const item = ref(``);
     const Router = useRouter();
     const pageQuery = ref("");
+    let dataTitleArr = reactive([]);
+
     pageQuery.value = JSON.parse(Router.currentRoute.value.query.detail);
     item.value = pageQuery.value;
-    
+
+    onMounted(async () => {
+      // 发起请求
+      await moreAdivice();
+    });
+
+    // 更多文章
+    const moreAdivice = async () => {
+      const result = await queryAdvise();
+      let dataTitle = result.data.reverse().slice(0, 5);
+      while (dataTitleArr.length) {
+        dataTitleArr.pop();
+      }
+      for (let item of dataTitle) {
+        dataTitleArr.push(item);
+      }
+    };
+
     return {
       data,
       item,
+      dataTitleArr,
     };
   },
 });
