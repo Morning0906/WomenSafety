@@ -12,40 +12,16 @@
       <div class="user-article">
         <div class="title">我发布的帖子</div>
 
-        <div class="item-tweet">
+        <div class="item-tweet" v-for="(item, index) in myTweetArr">
           <div class="avatar">
             <img src="../../assets/my-post.png" alt="User avatar" />
           </div>
           <div class="content">
             <div class="header">
               <span class="username">{{ username }}</span>
-              <span class="date">2023-04-04</span>
+              <span class="date">{{ item.createAt }}</span>
             </div>
-            <div class="text">有没有什么讲述女性安全的电影？</div>
-          </div>
-        </div>
-        <div class="item-tweet">
-          <div class="avatar">
-            <img src="../../assets/my-post.png" alt="User avatar" />
-          </div>
-          <div class="content">
-            <div class="header">
-              <span class="username">{{ username }}</span>
-              <span class="date">2023-04-03</span>
-            </div>
-            <div class="text">想去看livehouse，一个人去会不会不安全</div>
-          </div>
-        </div>
-        <div class="item-tweet">
-          <div class="avatar">
-            <img src="../../assets/my-post.png" alt="User avatar" />
-          </div>
-          <div class="content">
-            <div class="header">
-              <span class="username">{{ username }}</span>
-              <span class="date">2023-02-04</span>
-            </div>
-            <div class="text">女大学生如何更好的保护自身安全？</div>
+            <div class="text">{{ item.title }}</div>
           </div>
         </div>
       </div>
@@ -138,7 +114,7 @@
 </template>
 
 <script>
-import { defineComponent, onMounted, ref } from "vue";
+import { defineComponent, onMounted, reactive, ref } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 import {
@@ -152,6 +128,7 @@ import {
 } from "naive-ui";
 import useReduceFn from "@/hooks/useReduceFn";
 import { UpdateUserInfo } from "@/api/user";
+import { queryTweets } from "@/api/index";
 import HeadNav from "@/components/HeadNav";
 
 export default defineComponent({
@@ -174,13 +151,14 @@ export default defineComponent({
     const userid = ref("");
     const sex = ref("");
     const age = ref("");
+    const myTweetArr = reactive([]);
     const loading = ref(true);
     // 确认按钮文本
     const btnText = ref("修改信息");
     const notification = useNotification();
     let cancelable = ref(false);
 
-    onMounted(() => {
+    onMounted(async () => {
       // 从store中获取数据
       userid.value = Store.state.user.userid;
       username.value = Store.state.user.username;
@@ -188,6 +166,8 @@ export default defineComponent({
       avator.value = Store.state.user.avator;
       age.value = Store.state.user.age;
       sex.value = Store.state.user.sex === 1 ? "男" : "女";
+      // 我的讨论
+      await myTweet();
       loading.value = false;
     });
 
@@ -246,6 +226,17 @@ export default defineComponent({
       loading.value = false;
     };
 
+    // 我的讨论
+    const myTweet = async () => {
+      const result = await queryTweets();
+      let myTweetList = result.data.reverse().filter((item) => {
+        return item.author === username.value;
+      }).slice(0, 3);
+      for (let item of myTweetList) {
+        myTweetArr.push(item);
+      }
+    };
+
     return {
       cancelable,
       handleLogOut,
@@ -259,6 +250,7 @@ export default defineComponent({
       age,
       saveContent,
       loading,
+      myTweetArr,
     };
   },
 });
@@ -370,12 +362,12 @@ export default defineComponent({
     :deep(.n-space) {
       margin-top: 10px;
       font-size: 16px;
-      .n-input{
+      .n-input {
         margin-top: 10px;
         border-radius: 6px;
         background-color: rgba(255, 255, 255, 0.7);
       }
-      .n-button{
+      .n-button {
         margin-top: 20px;
       }
     }

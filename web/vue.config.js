@@ -9,9 +9,10 @@ module.exports = defineConfig({
     open: true, // 打开浏览器窗口
     proxy: {
       '/': {
+        ws: false,
         target: 'http://localhost:5200', // 目标服务器地址
         changeOrigin: true,
-      }
+      },
     }
   },
   transpileDependencies: true,

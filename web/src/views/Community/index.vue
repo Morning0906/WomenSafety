@@ -105,7 +105,7 @@ export default defineComponent({
       await updateTweet();
     });
 
-    // 发布讨论
+    // 更新讨论
     const updateTweet = async () => {
       const result = await queryTweets();
       let dataTitle = result.data.reverse().slice(0, 5);
