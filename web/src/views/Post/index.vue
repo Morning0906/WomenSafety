@@ -29,7 +29,11 @@
         </div>
         <div class="comment-title">全部评论</div>
         <div class="comment-container">
-          <div class="comment-item" v-for="(item, index) in commentArr" :key="index">
+          <div
+            class="comment-item"
+            v-for="(item, index) in commentArr"
+            :key="index"
+          >
             <div class="comment-author">{{ item.author }}：</div>
             <div class="comment-content">
               {{ item.content }}
@@ -49,14 +53,18 @@
         </div>
         <div class="right-one">
           <div class="item-container-one">
-            <div class="right-item" v-for="(item, index) in dataTitleArr">
+            <div
+              class="right-item"
+              v-for="(i, index) in dataTitleArr"
+              @click="refreshNewData(i)"
+            >
               <img
                 class="title-icon-2"
                 src="../../assets/discuss.png"
                 alt=""
                 srcset=""
               />
-              {{ item.title }}
+              {{ i.title }}
             </div>
           </div>
         </div>
@@ -75,7 +83,12 @@ import HeadNav from "@/components/HeadNav";
 import Footer from "@/components/Footer.vue";
 import { ElInput } from "element-plus";
 import { useRouter } from "vue-router";
-import { queryTweets, queryCommentsByTweetId, createComments } from "@/api/index";
+import {
+  queryTweets,
+  queryCommentsByTweetId,
+  createComments,
+  findTweetById,
+} from "@/api/index";
 import { useStore } from "vuex";
 
 export default defineComponent({
@@ -140,12 +153,22 @@ export default defineComponent({
       await initComment();
     };
 
+    // 重新请求数据
+    const refreshNewData = async (event) => {
+      let result = await findTweetById({
+        id: event._id,
+      });
+      item.value = result.data;
+      await initComment();
+    };
+
     return {
       inputValue,
       publishComment,
       item,
       commentArr,
       dataTitleArr,
+      refreshNewData,
     };
   },
 });

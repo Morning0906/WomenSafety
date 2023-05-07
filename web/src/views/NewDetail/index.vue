@@ -25,14 +25,18 @@
         </div>
         <div class="right-one">
           <div class="item-container-one">
-            <div class="right-item" v-for="(item, index) in dataTitleArr">
+            <div
+              class="right-item"
+              v-for="(i, index) in dataTitleArr"
+              @click="refreshNewData(i)"
+            >
               <img
                 class="news-icon"
                 src="../../assets/article.png"
                 alt=""
                 srcset=""
               />
-              {{ item.title }}
+              {{ i.title }}
             </div>
           </div>
         </div>
@@ -50,7 +54,7 @@ import { defineComponent, ref, reactive, onMounted } from "vue";
 import HeadNav from "@/components/HeadNav";
 import Footer from "@/components/Footer";
 import { useRouter } from "vue-router";
-import { queryAdvise } from "@/api/index";
+import { queryAdvise, findAdviseById } from "@/api/index";
 
 export default defineComponent({
   components: { HeadNav, Footer },
@@ -63,13 +67,11 @@ export default defineComponent({
   setup() {
     // 定义变量
     const data = ref(``);
-    const item = ref(``);
+    const item = ref('');
     const Router = useRouter();
-    const pageQuery = ref("");
     let dataTitleArr = reactive([]);
 
-    pageQuery.value = JSON.parse(Router.currentRoute.value.query.detail);
-    item.value = pageQuery.value;
+    item.value = JSON.parse(Router.currentRoute.value.query.detail);
 
     onMounted(async () => {
       // 发起请求
@@ -88,10 +90,19 @@ export default defineComponent({
       }
     };
 
+    // 重新请求数据
+    const refreshNewData = async (event) => {
+      let result = await findAdviseById({
+        id: event._id
+      });
+      item.value = result.data;
+    };
+
     return {
       data,
       item,
       dataTitleArr,
+      refreshNewData,
     };
   },
 });

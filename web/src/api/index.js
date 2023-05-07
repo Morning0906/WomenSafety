@@ -71,3 +71,12 @@ export function findAdviseById(data) {
         data,
     });
 }
+
+// 请求讨论
+export function findTweetById(data) {
+    return request({
+        url: `findTweetById`,
+        method: "post",
+        data,
+    });
+}
