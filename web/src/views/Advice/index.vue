@@ -16,7 +16,7 @@
                 v-for="(item, index) in liveAlone"
                 :key="index"
               >
-                <router-link to="/article">• {{ item.title }}</router-link>
+                <div @click="jumpToArticle(item)">• {{ item.title }}</div>
               </div>
             </div>
           </div>
@@ -33,7 +33,7 @@
                 v-for="(item, index) in Outside"
                 :key="index"
               >
-                <router-link to="/article">• {{ item.title }}</router-link>
+                <div @click="jumpToArticle(item)">• {{ item.title }}</div>
               </div>
             </div>
           </div>
@@ -50,7 +50,7 @@
                 v-for="(item, index) in Daily"
                 :key="index"
               >
-                <router-link to="/article">• {{ item.title }}</router-link>
+                <div @click="jumpToArticle(item)">• {{ item.title }}</div>
               </div>
             </div>
           </div>
@@ -67,7 +67,7 @@
                 v-for="(item, index) in Other"
                 :key="index"
               >
-                <router-link to="/article">• {{ item.title }}</router-link>
+                <div @click="jumpToArticle(item)">• {{ item.title }}</div>
               </div>
             </div>
           </div>
@@ -83,6 +83,7 @@ import { defineComponent, ref, onMounted, reactive } from "vue";
 import HeadNav from "@/components/HeadNav";
 import Footer from "@/components/Footer.vue";
 import { queryAdvise } from "@/api/index";
+import { useRouter } from "vue-router";
 
 export default defineComponent({
   components: { HeadNav, Footer },
@@ -93,6 +94,7 @@ export default defineComponent({
     const Outside = reactive([]);
     const Daily = reactive([]);
     const Other = reactive([]);
+    const Router = useRouter();
 
     // 在组件挂载后执行的操作
     onMounted(async () => {
@@ -133,12 +135,20 @@ export default defineComponent({
       }
     });
 
+    const jumpToArticle = (item) => {
+      Router.push({
+        path: "Article",
+        query: { id: item._id },
+      });
+    };
+
     return {
       data,
       liveAlone,
       Outside,
       Daily,
       Other,
+      jumpToArticle,
     };
   },
 });

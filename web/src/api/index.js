@@ -63,3 +63,11 @@ export function createComments(data) {
     });
 }
 
+// 请求建议
+export function findAdviseById(data) {
+    return request({
+        url: `findAdviseById`,
+        method: "post",
+        data,
+    });
+}

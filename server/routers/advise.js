@@ -6,4 +6,5 @@ module.exports = (app) => {
     app
         .use(route.get('/queryAdvise', adviseController.queryAdvise))
         .use(route.post('/createAdvise', adviseController.createAdvise))
+        .use(route.post('/findAdviseById', adviseController.findAdviseById))
 }

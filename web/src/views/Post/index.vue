@@ -165,7 +165,6 @@ export default defineComponent({
       const result = await queryCommentsByTweetId({
         tweet_id: item.value._id,
       });
-      console.log(result);
       let arr = result.data.reverse().slice(0, 5);
       while (commentArr.length) {
         commentArr.pop();

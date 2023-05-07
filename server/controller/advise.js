@@ -27,5 +27,21 @@ module.exports = {
             status: 200,
             data: result ? result : null
         }
-    }
+    },
+    findAdviseById: async ctx => {
+        let id = ctx.request.body.id;
+        if (!id) {
+            ctx.body = {
+                message: "id参数没有携带",
+                status: 404
+            }
+            return;
+        }
+        let result = await mongoose.findAdviseById(id);
+        ctx.body = {
+            message: "获取成功",
+            status: 200,
+            data: result ? result : null
+        }
+    },
 }

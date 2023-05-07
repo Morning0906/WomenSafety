@@ -28,9 +28,9 @@
               v-for="(item, index) in liveAlone"
               :key="index"
             >
-              <router-link to="/article"
-                >{{ index + 1 }}. {{ item.title }}</router-link
-              >
+              <div @click="jumpToArticle(item)">
+                {{ index + 1 }}. {{ item.title }}
+              </div>
             </div>
           </div>
           <div class="more-box">
@@ -53,9 +53,9 @@
               v-for="(item, index) in Outside"
               :key="index"
             >
-              <router-link to="/article"
-                >{{ index + 1 }}. {{ item.title }}</router-link
-              >
+              <div @click="jumpToArticle(item)">
+                {{ index + 1 }}. {{ item.title }}
+              </div>
             </div>
           </div>
           <div class="more-box">
@@ -74,9 +74,9 @@
           </div>
           <div class="item-container-three">
             <div class="left-item" v-for="(item, index) in Daily" :key="index">
-              <router-link to="/article"
-                >{{ index + 1 }}. {{ item.title }}</router-link
-              >
+              <div @click="jumpToArticle(item)">
+                {{ index + 1 }}. {{ item.title }}
+              </div>
             </div>
           </div>
           <div class="more-box">
@@ -280,7 +280,16 @@ export default defineComponent({
     }
 
     const jumpEvent = (item) => {
-      Router.push({ path: "NewDetail", query: { detail: JSON.stringify(item) } });
+      Router.push({
+        path: "NewDetail",
+        query: { detail: JSON.stringify(item) },
+      });
+    };
+    const jumpToArticle = (item) => {
+      Router.push({
+        path: "Article",
+        query: { id: item._id },
+      });
     };
 
     return {
@@ -294,6 +303,7 @@ export default defineComponent({
       PageSize,
       handleCurrentChange,
       jumpEvent,
+      jumpToArticle,
     };
   },
 });

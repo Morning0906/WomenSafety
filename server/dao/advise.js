@@ -26,8 +26,14 @@ function createAdvise(obj) {
 function queryAdvise() {
     return AdviseList.find()
 }
+function findAdviseById(id) {
+    return AdviseList.findById({
+        _id: id
+    })
+}
 
 module.exports = {
     createAdvise,
     queryAdvise,
+    findAdviseById,
 }
