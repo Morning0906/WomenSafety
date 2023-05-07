@@ -368,6 +368,7 @@ export default defineComponent({
       font-size: 16px;
       margin-left: 20px;
       text-align: left;
+      cursor: pointer;
     }
     .more-box {
       font-size: 14px;
@@ -408,6 +409,7 @@ export default defineComponent({
           font-size: 20px;
           text-align: left;
           display: flex;
+          cursor: pointer;
         }
         .main-news-article {
           margin-top: 10px;

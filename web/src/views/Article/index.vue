@@ -241,6 +241,7 @@ export default defineComponent({
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
+      cursor: pointer;
     }
     .more-box {
       font-size: 14px;
