@@ -6,7 +6,7 @@
         <div class="left-title">{{ item.title }}</div>
         <div class="left-title2">
           <div class="author-box">@{{ item.author }}</div>
-          <div class="time-box">{{ item.createAt }}</div>
+          <div class="time-box">2023-05-08 09:48:59</div>
         </div>
         <div class="article-container">
           {{ item.content }}
@@ -29,6 +29,9 @@
         </div>
         <div class="comment-title">全部评论</div>
         <div class="comment-container">
+          <div class="comment-tip" v-show="commentArr.length == 0">
+            暂时还没有评论哦~
+          </div>
           <div
             class="comment-item"
             v-for="(item, index) in commentArr"
@@ -56,6 +59,7 @@
             <div
               class="right-item"
               v-for="(i, index) in dataTitleArr"
+              :key="index"
               @click="refreshNewData(i)"
             >
               <img
@@ -149,6 +153,7 @@ export default defineComponent({
         author: Store.state.user.username,
         content: inputValue.value,
       });
+      inputValue.value = "";
       alert(result.message);
       await initComment();
     };
@@ -270,6 +275,15 @@ export default defineComponent({
       text-align: left;
     }
 
+    .comment-tip {
+      font-size: 20px;
+      color: #454;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      margin-left: 5px;
+      text-align: center;
+    }
+
     .comment-item {
       height: auto;
       line-height: 50px;
@@ -370,6 +384,9 @@ export default defineComponent({
           display: flex;
           align-items: center;
           cursor: pointer;
+        }
+        .right-item:hover {
+          text-decoration: underline;
         }
       }
     }

@@ -377,6 +377,9 @@ export default defineComponent({
             border-bottom: 0.5px solid #eeeeee;
           }
         }
+        .news-item:hover {
+          text-decoration: underline;
+        }
       }
     }
   }

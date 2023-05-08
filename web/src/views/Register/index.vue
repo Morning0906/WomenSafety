@@ -121,6 +121,7 @@ export default defineComponent({
       });
       console.log(result);
       if (result.status == 200) {
+        alert("注册成功！")
         Router.push("/login");
       } else {
         notify("error", result.message);

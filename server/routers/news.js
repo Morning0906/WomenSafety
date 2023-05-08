@@ -6,4 +6,5 @@ module.exports = (app) => {
     app
         .use(route.get('/queryNews', NewsController.queryNews))
         .use(route.post('/createNews', NewsController.createNews))
+        .use(route.post('/findNewsById', NewsController.findNewsById))
 }

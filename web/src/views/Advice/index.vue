@@ -251,6 +251,10 @@ export default defineComponent({
         font-size: 14px;
         color: #999;
         text-align: left;
+        cursor: pointer;
+      }
+      .left-item:hover {
+        text-decoration: underline;
       }
     }
   }

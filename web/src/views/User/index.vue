@@ -12,14 +12,19 @@
       <div class="user-article">
         <div class="title">我发布的帖子</div>
 
-        <div class="item-tweet" v-for="(item, index) in myTweetArr">
+        <div
+          class="item-tweet"
+          @click="jump(item)"
+          v-for="(item, index) in myTweetArr"
+          :key="index"
+        >
           <div class="avatar">
             <img src="../../assets/my-post.png" alt="User avatar" />
           </div>
           <div class="content">
             <div class="header">
               <span class="username">{{ username }}</span>
-              <span class="date">{{ item.createAt }}</span>
+              <span class="date">2023-05-08 09:48:59</span>
             </div>
             <div class="text">{{ item.title }}</div>
           </div>
@@ -158,6 +163,10 @@ export default defineComponent({
     const notification = useNotification();
     let cancelable = ref(false);
 
+    const jump = (item) => {
+      Router.push({ path: "post", query: { detail: JSON.stringify(item) } });
+    };
+
     onMounted(async () => {
       // 从store中获取数据
       userid.value = Store.state.user.userid;
@@ -183,8 +192,9 @@ export default defineComponent({
     function handleLogOut() {
       if (cancelable.value) {
         // TODO: 登出处理Store
+        alert("登出成功！");
         Store.commit("user/USER_LOGOUT");
-        Router.push("/login");
+        Router.push("/home");
       } else {
         cancelable.value = true;
       }
@@ -229,9 +239,12 @@ export default defineComponent({
     // 我的讨论
     const myTweet = async () => {
       const result = await queryTweets();
-      let myTweetList = result.data.reverse().filter((item) => {
-        return item.author === username.value;
-      }).slice(0, 3);
+      let myTweetList = result.data
+        .reverse()
+        .filter((item) => {
+          return item.author === username.value;
+        })
+        .slice(0, 3);
       for (let item of myTweetList) {
         myTweetArr.push(item);
       }
@@ -251,6 +264,7 @@ export default defineComponent({
       saveContent,
       loading,
       myTweetArr,
+      jump,
     };
   },
 });
@@ -303,6 +317,7 @@ export default defineComponent({
         margin: 15px 0;
         padding: 10px;
         box-shadow: 5px 5px 5px #eee;
+        cursor: pointer;
 
         .avatar {
           margin-right: 15px;
@@ -338,6 +353,10 @@ export default defineComponent({
             font-size: 16px;
             text-align: left;
             margin-top: 10px;
+          }
+
+          .text:hover {
+            text-decoration: underline;
           }
         }
       }

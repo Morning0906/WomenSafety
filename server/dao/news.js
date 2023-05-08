@@ -26,8 +26,14 @@ function createNews(obj) {
 function queryNews() {
     return NewsList.find()
 }
+function findNewsById(id) {
+    return NewsList.findById({
+        _id: id
+    })
+}
 
 module.exports = {
     createNews,
     queryNews,
+    findNewsById
 }

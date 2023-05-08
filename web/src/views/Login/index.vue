@@ -73,6 +73,7 @@ export default defineComponent({
       if (result.status != 200) {
         notify("error", result.message);
       } else {
+        alert("登录成功！")
         console.log(result.data);
         await Store.dispatch("user/INITUSERINFO", result.data);
         localStorage.setItem("token", result.data.token);

@@ -28,4 +28,20 @@ module.exports = {
             data: result ? result : null
         }
     },
+    findNewsById: async ctx => {
+        let id = ctx.request.body.id;
+        if (!id) {
+            ctx.body = {
+                message: "id参数没有携带",
+                status: 404
+            }
+            return;
+        }
+        let result = await mongoose.findNewsById(id);
+        ctx.body = {
+            message: "获取成功",
+            status: 200,
+            data: result ? result : null
+        }
+    },
 }

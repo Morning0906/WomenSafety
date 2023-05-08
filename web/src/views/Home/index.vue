@@ -370,6 +370,9 @@ export default defineComponent({
       text-align: left;
       cursor: pointer;
     }
+    .left-item:hover {
+      text-decoration: underline;
+    }
     .more-box {
       font-size: 14px;
       height: 40px;
@@ -411,6 +414,9 @@ export default defineComponent({
           display: flex;
           cursor: pointer;
         }
+        .main-news-title:hover {
+          text-decoration: underline;
+        }
         .main-news-article {
           margin-top: 10px;
           font-size: 14px;
@@ -427,11 +433,9 @@ export default defineComponent({
         justify-content: center;
         align-items: center;
         margin-top: 20px;
-        :deep(
-            .el-pagination.is-background
-              .el-pager
-              li:not(.is-disabled).is-active
-          ) {
+        :deep(.el-pagination.is-background
+            .el-pager
+            li:not(.is-disabled).is-active) {
           color: #000;
           background-color: rgba(
             255,

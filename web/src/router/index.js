@@ -104,16 +104,27 @@ const Router = createRouter({
     routes,
 });
 
+// 路由后置守卫
+Router.afterEach((to, from, next) => {
+    window.scrollTo(0, 0);
+    // chrome
+    document.body.scrollTop = 0
+    // firefox
+    document.documentElement.scrollTop = 0
+    // safari
+    window.pageYOffset = 0
+});
+
 // 路由前置守卫
 Router.beforeEach(async (to, from, next) => {
     // 登录后, 会设置的 userId
     let token = Store.state.user.token;
     // 页面需要登录
-    if(to.matched.some(item => item.meta.requiresAuth)) {
+    if (to.matched.some(item => item.meta.requiresAuth)) {
         console.log("------------");
         console.log(token);
         // 用户登录
-        if(token) {
+        if (token) {
             return next();
         }
         // 用户未登录

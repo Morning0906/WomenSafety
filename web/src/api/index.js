@@ -80,3 +80,12 @@ export function findTweetById(data) {
         data,
     });
 }
+
+// 新闻查询
+export function findNewsById(data) {
+    return request({
+        url: `findNewsById`,
+        method: "post",
+        data,
+    });
+}
